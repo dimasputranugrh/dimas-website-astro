@@ -4,7 +4,7 @@ import profileImageLight from '../../assets/image_white.png';
 ---
 
 <section id="top" class="relative py-20 sm:py-24" data-hero>
-	<div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-5 md:grid-cols-[1.15fr_0.85fr]">
+	<div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-5 lg:grid-cols-[1.15fr_0.85fr]">
 		<div class="relative min-w-0">
 			<div class="reveal" data-reveal data-delay="0">
 				<span class="inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-zinc-950/10 bg-white/70 px-4 py-2 text-xs font-semibold tracking-tight text-zinc-700 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-zinc-200 sm:text-sm">
@@ -58,33 +58,33 @@ import profileImageLight from '../../assets/image_white.png';
 
 				<div class="relative aspect-[4/5] w-full">
 					<img
-						class="absolute inset-0 h-full w-full object-cover grayscale contrast-[1.08] brightness-[1.02] dark:hidden"
+						class="absolute inset-0 h-full w-full object-cover object-[50%_18%] grayscale contrast-[1.08] brightness-[1.02] dark:hidden lg:object-center"
 						src={profileImageLight.src}
 						alt="Foto profil Dimas Putra"
 						loading="eager"
 						decoding="async"
 					/>
 					<img
-						class="absolute inset-0 hidden h-full w-full object-cover grayscale contrast-[1.08] brightness-[0.95] dark:block"
+						class="absolute inset-0 hidden h-full w-full object-cover object-[50%_18%] grayscale contrast-[1.08] brightness-[0.95] dark:block lg:object-center"
 						src={profileImageDark.src}
 						alt="Foto profil Dimas Putra"
 						loading="eager"
 						decoding="async"
 					/>
 
-					<figcaption class="absolute inset-x-0 bottom-0 p-6">
-						<div class="grid gap-3 rounded-2xl border border-zinc-950/10 bg-white/70 p-4 backdrop-blur dark:border-white/10 dark:bg-zinc-950/45">
-							<div class="flex items-start justify-between gap-4">
+					<figcaption class="absolute inset-x-0 bottom-0 p-3 sm:p-5 lg:p-6">
+						<div class="grid gap-2 rounded-2xl border border-zinc-950/10 bg-white/70 p-2.5 backdrop-blur dark:border-white/10 dark:bg-zinc-950/45 sm:gap-3 sm:p-4">
+							<div class="flex items-start justify-between gap-3 sm:gap-4">
 								<div>
-									<div class="text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">Dimas Putra</div>
-									<div class="mt-1 break-words text-sm font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">Lead Frontend Developer</div>
+									<div class="text-[13px] font-semibold tracking-tight text-zinc-950 dark:text-white sm:text-sm">Dimas Putra</div>
+									<div class="mt-1 break-words text-xs font-semibold tracking-tight text-zinc-600 dark:text-zinc-300 sm:text-sm">Lead Frontend Developer</div>
 								</div>
-								<span class="tag">Open</span>
+								<span class="tag px-2 py-0.5 text-[10px] sm:px-3 sm:py-1 sm:text-xs">Open</span>
 							</div>
-							<div class="flex flex-wrap gap-2">
-								<span class="tag">TypeScript</span>
-								<span class="tag">Performance</span>
-								<span class="tag">Design System</span>
+							<div class="flex flex-wrap gap-1.5 sm:gap-2">
+								<span class="tag px-2 py-0.5 text-[10px] sm:px-3 sm:py-1 sm:text-xs">TypeScript</span>
+								<span class="tag px-2 py-0.5 text-[10px] sm:px-3 sm:py-1 sm:text-xs">Performance</span>
+								<span class="tag px-2 py-0.5 text-[10px] sm:px-3 sm:py-1 sm:text-xs">Design System</span>
 							</div>
 						</div>
 					</figcaption>

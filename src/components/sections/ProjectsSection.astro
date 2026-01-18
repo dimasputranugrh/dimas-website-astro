@@ -50,10 +50,10 @@ const projects = [
 
 		<div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 			{projects.slice(0, featuredProjectsCount).map((project) => (
-				<a
-					class="card group reveal overflow-hidden p-6 transition hover:-translate-y-1 hover:shadow-premium dark:hover:shadow-black/50"
+				<button
+					class="card group reveal w-full cursor-pointer overflow-hidden p-6 text-left transition hover:-translate-y-1 hover:shadow-premium dark:hover:shadow-black/50"
 					data-reveal
-					href="#"
+					type="button"
 					aria-label={`Karya: ${project.title}`}
 				>
 					<div class="aspect-video w-full overflow-hidden rounded-2xl bg-zinc-950/5 dark:bg-white/10">
@@ -74,14 +74,14 @@ const projects = [
 							<span class="tag">{item}</span>
 						))}
 					</div>
-				</a>
+				</button>
 			))}
 			{projects.slice(featuredProjectsCount).map((project) => (
-				<a
-					class="card group reveal hidden overflow-hidden p-6 transition hover:-translate-y-1 hover:shadow-premium dark:hover:shadow-black/50"
+				<button
+					class="card group reveal hidden w-full cursor-pointer overflow-hidden p-6 text-left transition hover:-translate-y-1 hover:shadow-premium dark:hover:shadow-black/50"
 					data-reveal
 					data-project-extra
-					href="#"
+					type="button"
 					aria-label={`Karya: ${project.title}`}
 				>
 					<div class="aspect-video w-full overflow-hidden rounded-2xl bg-zinc-950/5 dark:bg-white/10">
@@ -102,7 +102,7 @@ const projects = [
 							<span class="tag">{item}</span>
 						))}
 					</div>
-				</a>
+				</button>
 			))}
 		</div>
 
@@ -113,4 +113,3 @@ const projects = [
 		</div>
 	</div>
 </section>
-
