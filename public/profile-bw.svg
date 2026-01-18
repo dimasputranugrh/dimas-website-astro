@@ -1,0 +1,56 @@
+<svg width="900" height="1125" viewBox="0 0 900 1125" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<radialGradient id="g1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(320 320) rotate(53) scale(820 820)">
+			<stop offset="0" stop-color="#111111" stop-opacity="0.12" />
+			<stop offset="1" stop-color="#111111" stop-opacity="0" />
+		</radialGradient>
+		<radialGradient id="g2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(620 720) rotate(50) scale(900 900)">
+			<stop offset="0" stop-color="#111111" stop-opacity="0.10" />
+			<stop offset="1" stop-color="#111111" stop-opacity="0" />
+		</radialGradient>
+		<linearGradient id="g3" x1="0" y1="0" x2="0" y2="1125" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#FFFFFF" stop-opacity="0.75" />
+			<stop offset="1" stop-color="#FFFFFF" stop-opacity="0.35" />
+		</linearGradient>
+		<filter id="grain" x="-20%" y="-20%" width="140%" height="140%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch" />
+			<feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.22 0" />
+		</filter>
+	</defs>
+
+	<rect width="900" height="1125" rx="64" fill="url(#g3)" />
+	<rect width="900" height="1125" rx="64" fill="url(#g1)" />
+	<rect width="900" height="1125" rx="64" fill="url(#g2)" />
+
+	<g opacity="0.96">
+		<path
+			d="M450 610c118 0 214-96 214-214S568 182 450 182 236 278 236 396s96 214 214 214Z"
+			fill="#0A0A0A"
+			fill-opacity="0.14"
+		/>
+		<path
+			d="M136 1034c33-222 171-334 314-356c142 22 281 134 314 356H136Z"
+			fill="#0A0A0A"
+			fill-opacity="0.12"
+		/>
+	</g>
+
+	<g opacity="0.24">
+		<path d="M96 210h708" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" />
+		<path d="M96 920h708" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" />
+	</g>
+
+	<g filter="url(#grain)" opacity="0.35">
+		<rect width="900" height="1125" rx="64" fill="#000000" />
+	</g>
+
+	<g opacity="0.55">
+		<text x="50%" y="78%" dominant-baseline="middle" text-anchor="middle" fill="#0A0A0A" fill-opacity="0.5" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="34" font-weight="650" letter-spacing="-0.02em">
+			Your Photo (B/W)
+		</text>
+		<text x="50%" y="82%" dominant-baseline="middle" text-anchor="middle" fill="#0A0A0A" fill-opacity="0.38" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="18" font-weight="600" letter-spacing="-0.01em">
+			Replace /public/profile-bw.svg with your real photo later
+		</text>
+	</g>
+</svg>
+

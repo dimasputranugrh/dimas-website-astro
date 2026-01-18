@@ -1,0 +1,118 @@
+---
+import profileImageDark from '../../assets/image.png';
+import profileImageLight from '../../assets/image_white.png';
+---
+
+<section id="top" class="relative py-20 sm:py-24" data-hero>
+	<div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-5 md:grid-cols-[1.15fr_0.85fr]">
+		<div class="relative min-w-0">
+			<div class="reveal" data-reveal data-delay="0">
+				<span class="inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-zinc-950/10 bg-white/70 px-4 py-2 text-xs font-semibold tracking-tight text-zinc-700 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-zinc-200 sm:text-sm">
+					<span class="h-2 w-2 animate-pulse rounded-full bg-zinc-950 shadow-[0_0_0_6px_rgba(0,0,0,0.08)] dark:bg-white dark:shadow-[0_0_0_6px_rgba(255,255,255,0.12)]" aria-hidden="true"></span>
+					Available untuk freelance
+				</span>
+			</div>
+
+			<h1 class="reveal mt-5 text-balance text-4xl font-semibold tracking-tight text-zinc-950 dark:text-white sm:text-5xl md:text-6xl" data-reveal data-delay="80">
+				<span class="block">Frontend Developer (Web)</span>
+				<span class="mt-2 inline-block rounded-2xl bg-zinc-950 px-4 py-2 text-white shadow-sm dark:bg-white dark:text-zinc-950">yang fokus ke UI</span>
+				<span class="block">cepat, rapi, dan terasa mahal.</span>
+			</h1>
+
+			<p class="reveal mt-5 max-w-[62ch] text-pretty text-base leading-7 text-zinc-600 dark:text-zinc-300" data-reveal data-delay="160">
+				Saya bantu tim mengubah desain jadi produk: component yang konsisten, animasi halus, aksesibel, dan performa yang nggak kompromi. Fokus saya: detail UI, DX yang enak, dan hasil yang siap dipakai user.
+			</p>
+
+			<div class="reveal mt-7 flex flex-wrap items-center gap-3" data-reveal data-delay="240">
+				<a class="btn-primary" href="#contact">Kerja Bareng</a>
+				<a class="btn-ghost" href="#projects">Lihat Karya</a>
+				<a class="btn-glass max-w-[18rem] truncate sm:max-w-none" href="mailto:dimasputranugrh@gmail.com">dimasputranugrh@gmail.com</a>
+			</div>
+
+			<div class="reveal mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3" data-reveal data-delay="320">
+				<div class="card px-5 py-4">
+					<div class="text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">7+</div>
+					<div class="mt-1 text-xs font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">Tahun di frontend</div>
+				</div>
+				<div class="card px-5 py-4">
+					<div class="text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">Lighthouse 95+</div>
+					<div class="mt-1 text-xs font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">Skor performa</div>
+				</div>
+				<div class="card px-5 py-4">
+					<div class="text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">Lead</div>
+					<div class="mt-1 text-xs font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">Mentor & code review</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="reveal min-w-0" data-reveal data-delay="120">
+			<figure class="card hero-motion relative overflow-hidden">
+				<div
+					class="pointer-events-none absolute inset-0 opacity-90 [background:radial-gradient(circle_at_35%_20%,rgba(0,0,0,0.10),transparent_55%),radial-gradient(circle_at_70%_75%,rgba(0,0,0,0.08),transparent_58%)] dark:[background:radial-gradient(circle_at_35%_20%,rgba(255,255,255,0.12),transparent_55%),radial-gradient(circle_at_70%_75%,rgba(255,255,255,0.10),transparent_58%)]"
+					aria-hidden="true"
+				></div>
+				<div
+					class="pointer-events-none absolute inset-0 opacity-25 [background-image:linear-gradient(to_bottom,rgba(0,0,0,0.12),transparent_45%,rgba(0,0,0,0.22))] dark:opacity-35 dark:[background-image:linear-gradient(to_bottom,rgba(255,255,255,0.10),transparent_45%,rgba(0,0,0,0.42))]"
+					aria-hidden="true"
+				></div>
+
+				<div class="relative aspect-[4/5] w-full">
+					<img
+						class="absolute inset-0 h-full w-full object-cover grayscale contrast-[1.08] brightness-[1.02] dark:hidden"
+						src={profileImageLight.src}
+						alt="Foto profil Dimas Putra"
+						loading="eager"
+						decoding="async"
+					/>
+					<img
+						class="absolute inset-0 hidden h-full w-full object-cover grayscale contrast-[1.08] brightness-[0.95] dark:block"
+						src={profileImageDark.src}
+						alt="Foto profil Dimas Putra"
+						loading="eager"
+						decoding="async"
+					/>
+
+					<figcaption class="absolute inset-x-0 bottom-0 p-6">
+						<div class="grid gap-3 rounded-2xl border border-zinc-950/10 bg-white/70 p-4 backdrop-blur dark:border-white/10 dark:bg-zinc-950/45">
+							<div class="flex items-start justify-between gap-4">
+								<div>
+									<div class="text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">Dimas Putra</div>
+									<div class="mt-1 break-words text-sm font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">Lead Frontend Developer</div>
+								</div>
+								<span class="tag">Open</span>
+							</div>
+							<div class="flex flex-wrap gap-2">
+								<span class="tag">TypeScript</span>
+								<span class="tag">Performance</span>
+								<span class="tag">Design System</span>
+							</div>
+						</div>
+					</figcaption>
+				</div>
+			</figure>
+
+			<div class="mt-5 overflow-hidden rounded-2xl border border-zinc-950/10 bg-white/60 backdrop-blur dark:border-white/10 dark:bg-white/5">
+				<div class="px-6 py-4 text-sm font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">
+					<div class="flex w-max animate-marquee gap-8 whitespace-nowrap">
+						<div class="flex gap-8">
+							<span>Frontend Craft</span>
+							<span>Design System</span>
+							<span>Performance</span>
+							<span>TypeScript</span>
+							<span>Accessibility</span>
+							<span>DX</span>
+						</div>
+						<div class="flex gap-8" aria-hidden="true">
+							<span>Frontend Craft</span>
+							<span>Design System</span>
+							<span>Performance</span>
+							<span>TypeScript</span>
+							<span>Accessibility</span>
+							<span>DX</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

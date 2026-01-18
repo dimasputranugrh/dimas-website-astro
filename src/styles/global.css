@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		color-scheme: light dark;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	section[id] {
+		scroll-margin-top: 96px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+}
+
+@layer components {
+	.site-header.is-scrolled {
+		@apply shadow-premium shadow-black/10 dark:shadow-black/50;
+	}
+
+	.nav-link {
+		@apply rounded-full px-3 py-2 text-sm font-semibold tracking-tight text-zinc-600 transition hover:bg-zinc-950/5 hover:text-zinc-950 dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white;
+	}
+
+	.nav-link.is-active {
+		@apply bg-zinc-950/5 text-zinc-950 ring-1 ring-zinc-950/10 dark:bg-white/10 dark:text-white dark:ring-white/20;
+	}
+
+	.icon-btn {
+		@apply inline-grid h-11 w-11 place-items-center rounded-xl border border-zinc-950/10 bg-white/70 text-zinc-950 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10;
+	}
+
+	.btn {
+		@apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold tracking-tight transition hover:-translate-y-0.5;
+	}
+
+	.btn-primary {
+		@apply btn border border-zinc-950 bg-zinc-950 text-white shadow-premium shadow-black/25 hover:bg-zinc-900 dark:border-white dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100;
+	}
+
+	.btn-ghost {
+		@apply btn border border-zinc-950/10 bg-white/70 text-zinc-950 backdrop-blur hover:bg-white dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10;
+	}
+
+	.btn-glass {
+		@apply btn border border-zinc-950/10 bg-white/50 text-zinc-950 backdrop-blur hover:bg-white/70 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10;
+	}
+
+	.card {
+		@apply rounded-3xl border border-zinc-950/10 bg-white/70 shadow-premium shadow-black/10 backdrop-blur dark:border-white/10 dark:bg-white/5 dark:shadow-black/45;
+	}
+
+	.tag {
+		@apply inline-flex items-center rounded-full border border-zinc-950/10 bg-zinc-950/5 px-3 py-1 text-xs font-semibold tracking-tight text-zinc-700 dark:border-white/10 dark:bg-white/10 dark:text-zinc-200;
+	}
+
+	.reveal {
+		opacity: 0;
+		filter: blur(var(--reveal-blur, 10px));
+		transform: translate3d(var(--reveal-x, 0px), var(--reveal-y, 16px), 0) rotate(var(--reveal-r, 0deg))
+			scale(var(--reveal-s, 0.98));
+		transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 900ms cubic-bezier(0.16, 1, 0.3, 1),
+			filter 900ms cubic-bezier(0.16, 1, 0.3, 1);
+		will-change: opacity, transform, filter;
+	}
+
+	.reveal.is-in {
+		opacity: 1;
+		filter: blur(0px);
+		transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+	}
+
+	.hero-motion {
+		transform: translate3d(
+			calc(var(--mx, 0) * 8px),
+			calc(var(--my, 0) * 8px + var(--scroll, 0) * -12px),
+			0
+		);
+		transition: transform 180ms ease;
+		will-change: transform;
+	}
+}

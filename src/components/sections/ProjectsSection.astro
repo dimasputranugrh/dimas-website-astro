@@ -1,0 +1,116 @@
+---
+import karyaClientArea from '../../assets/clientarea.png';
+import karyaDelight from '../../assets/delight.png';
+import karyaEngage from '../../assets/engage.png';
+import karyaKasir from '../../assets/kasir.png';
+import karyaMifx from '../../assets/mifx.png';
+import karyaMigas from '../../assets/migas.png';
+import karyaMitra from '../../assets/mitra.png';
+import karyaPaguyuban from '../../assets/paguyuban.png';
+import karyaPrincipal from '../../assets/principal.png';
+import karyaSrc from '../../assets/src.png';
+import karyaUpt from '../../assets/upt.png';
+import karyaZum from '../../assets/zum.png';
+import karyaZumIot from '../../assets/zumiot.png';
+import karyaStorybook from '../../assets/storybook.png';
+import karyaPgri from '../../assets/pgri.png';
+import karyaAmb from '../../assets/amb.png';
+import karyaAmbMegatrand from '../../assets/ambmegatrand.png';
+
+const featuredProjectsCount = 3;
+const projects = [
+	{ title: 'MIFX', tag: 'Fintech', image: karyaMifx, stack: ['Next.js', 'React', 'Tailwind', 'Zustand', 'TypeScript', 'SEO'] },
+	{ title: 'AYO SRC', tag: 'Fintech', image: karyaSrc, stack: ['PWA', 'Angular', 'TypeScript', 'Performance', 'SEO'] },
+	{ title: 'SKK Migas', tag: 'Enterprise', image: karyaMigas, stack: ['Laravel', 'REST API', 'UI', 'Security'] },
+	{ title: 'MIFX Client Area', tag: 'Dashboard', image: karyaClientArea, stack: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'API'] },
+	{ title: 'Kasir', tag: 'Product Dashboard', image: karyaKasir, stack: ['Angular', 'PWA', 'TypeScript', 'Tailwind', 'State'] },
+	{ title: 'AMB', tag: 'Company Product', image: karyaAmb, stack: ['Astro', 'TypeScript', 'Tailwind', 'UI', 'DX'] },
+	{ title: 'AMB Megatrand', tag: 'Company Product', image: karyaAmbMegatrand, stack: ['Astro', 'TypeScript', 'Tailwind', 'UI', 'DX'] },
+	{ title: 'ZUM IoT', tag: 'Dashboard Product', image: karyaZum, stack: ['Angular', 'IoT', 'Dashboard', 'Realtime', 'UI'] },
+	{ title: 'ZUM IoT', tag: 'Company Product', image: karyaZumIot, stack: ['PHP Native', 'UI', 'DX'] },
+	{ title: 'UPT', tag: 'App', image: karyaUpt, stack: ['Web GIS', 'UI', 'API', 'Performance', 'Leaflet', 'OpenLayers', 'GeoJSON', 'PHP'] },
+	{ title: 'Principal', tag: 'Web', image: karyaPrincipal, stack: ['Angular', 'UI', 'Responsive', 'DX'] },
+	{ title: 'Mitra', tag: 'Web', image: karyaMitra, stack: ['Angular', 'UI', 'Responsive', 'DX'] },
+	{ title: 'Paguyuban', tag: 'Community', image: karyaPaguyuban, stack: ['Angular', 'UI', 'Content', 'DX'] },
+	{ title: 'Engage', tag: 'Dashboard', image: karyaEngage, stack: ['Next.js', 'React', 'Dashboard', 'UI', 'Performance'] },
+	{ title: 'Delight', tag: 'Dashboard', image: karyaDelight, stack: ['Next.js', 'React', 'Dashboard', 'UI', 'Backoffice'] },
+	{ title: 'Storybook', tag: 'Documentation', image: karyaStorybook, stack: ['Storybook', 'UI', 'Component', 'Documentation'] },
+	{ title: 'PGRI', tag: 'Community', image: karyaPgri, stack: ['Website', 'UI', 'Content', 'SEO'] },
+];
+---
+
+<section id="projects" class="py-16 sm:py-20">
+	<div class="mx-auto max-w-6xl px-5">
+		<div class="grid gap-3">
+			<h2 class="reveal text-2xl font-semibold tracking-tight text-zinc-950 dark:text-white" data-reveal>Karya</h2>
+			<p class="reveal max-w-[78ch] text-pretty text-base leading-7 text-zinc-600 dark:text-zinc-300" data-reveal>
+				Pilihan karya yang nunjukin fokus saya: UI rapi, performa cepat, dan detail yang konsisten.
+			</p>
+		</div>
+
+		<div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+			{projects.slice(0, featuredProjectsCount).map((project) => (
+				<a
+					class="card group reveal overflow-hidden p-6 transition hover:-translate-y-1 hover:shadow-premium dark:hover:shadow-black/50"
+					data-reveal
+					href="#"
+					aria-label={`Karya: ${project.title}`}
+				>
+					<div class="aspect-video w-full overflow-hidden rounded-2xl bg-zinc-950/5 dark:bg-white/10">
+						<img
+							class="h-full w-full object-contain p-2 grayscale transition duration-500 ease-out group-hover:grayscale-0 group-hover:saturate-110 group-hover:contrast-105"
+							src={project.image.src}
+							alt={project.title}
+							loading="lazy"
+							decoding="async"
+						/>
+					</div>
+					<div class="mt-5 flex items-start justify-between gap-4">
+						<div class="text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">{project.title}</div>
+						<span class="tag">{project.tag}</span>
+					</div>
+					<div class="mt-4 flex flex-wrap gap-2">
+						{project.stack.map((item) => (
+							<span class="tag">{item}</span>
+						))}
+					</div>
+				</a>
+			))}
+			{projects.slice(featuredProjectsCount).map((project) => (
+				<a
+					class="card group reveal hidden overflow-hidden p-6 transition hover:-translate-y-1 hover:shadow-premium dark:hover:shadow-black/50"
+					data-reveal
+					data-project-extra
+					href="#"
+					aria-label={`Karya: ${project.title}`}
+				>
+					<div class="aspect-video w-full overflow-hidden rounded-2xl bg-zinc-950/5 dark:bg-white/10">
+						<img
+							class="h-full w-full object-contain p-2 grayscale transition duration-500 ease-out group-hover:grayscale-0 group-hover:saturate-110 group-hover:contrast-105"
+							src={project.image.src}
+							alt={project.title}
+							loading="lazy"
+							decoding="async"
+						/>
+					</div>
+					<div class="mt-5 flex items-start justify-between gap-4">
+						<div class="text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">{project.title}</div>
+						<span class="tag">{project.tag}</span>
+					</div>
+					<div class="mt-4 flex flex-wrap gap-2">
+						{project.stack.map((item) => (
+							<span class="tag">{item}</span>
+						))}
+					</div>
+				</a>
+			))}
+		</div>
+
+		<div class="reveal mt-6 flex flex-wrap items-center gap-3" data-reveal>
+			<button class="btn-primary" type="button" data-projects-toggle data-open-label="Lihat Semua Karya" data-close-label="Tutup Karya">
+				Lihat Semua Karya
+			</button>
+		</div>
+	</div>
+</section>
+
