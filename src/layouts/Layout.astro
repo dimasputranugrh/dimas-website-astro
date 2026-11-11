@@ -1,27 +1,60 @@
 ---
+import '@fontsource/instrument-serif/latin-400.css';
+import '@fontsource/instrument-serif/latin-400-italic.css';
+import '@fontsource-variable/instrument-sans/wght.css';
+import '@fontsource/ibm-plex-mono/latin-400.css';
+import '@fontsource/ibm-plex-mono/latin-500.css';
+import '../styles/global.css';
+
 export interface Props {
 	title?: string;
 	description?: string;
 }
 
-const { title = 'Portfolio', description = 'Portfolio pribadi.' } = Astro.props;
-
-import '../styles/global.css';
+const {
+	title = 'Dimas Putra, Lead Frontend Developer',
+	description = 'Portfolio of Dimas Putra, Lead Frontend Developer. Seven years building web interfaces that load fast, stay consistent, and work for everyone.',
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="id">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="author" content="Dimas Putra" />
 		<meta name="description" content={description} />
+		<meta name="theme-color" content="#F2EDE4" data-theme-color />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:locale" content="en_US" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
 		<title>{title}</title>
+		<script is:inline>
+			(() => {
+				const root = document.documentElement;
+				root.classList.add('js');
+				let theme = 'light';
+				try {
+					const stored = localStorage.getItem('theme');
+					if (stored === 'light' || stored === 'dark') {
+						theme = stored;
+					} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+						theme = 'dark';
+					}
+				} catch {
+					theme = 'light';
+				}
+				root.dataset.theme = theme;
+			})();
+		</script>
 	</head>
-	<body
-		class="overflow-x-hidden bg-white text-zinc-950 antialiased selection:bg-zinc-950/15 selection:text-zinc-950 dark:bg-zinc-950 dark:text-white dark:selection:bg-white/15 dark:selection:text-white"
-	>
+	<body class="bg-paper font-sans text-ink antialiased">
 		<slot />
 	</body>
 </html>

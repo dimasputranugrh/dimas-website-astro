@@ -1,58 +1,53 @@
-<section id="skills" class="py-16 sm:py-20">
-	<div class="mx-auto max-w-6xl px-5">
-		<div class="grid gap-3">
-			<h2 class="reveal text-2xl font-semibold tracking-tight text-zinc-950 dark:text-white" data-reveal>Skill</h2>
-			<p class="reveal max-w-[78ch] text-pretty text-base leading-7 text-zinc-600 dark:text-zinc-300" data-reveal>
-				Fokus saya: frontend performance, UI yang konsisten, dan integrasi API yang rapi.
+---
+import ChapterLabel from '../ChapterLabel.astro';
+
+const groups = [
+	{
+		title: 'Frontend',
+		note: 'Interfaces that are fast and easy to maintain, from SSR to PWA.',
+		tags: ['React', 'Next.js', 'React Native', 'AngularJS', 'TypeScript', 'SSR', 'PWA'],
+	},
+	{
+		title: 'UI / Styling',
+		note: 'A visual system that stays consistent, from tokens to components.',
+		tags: ['Design system', 'Tailwind CSS', 'SASS', 'Material UI', 'Accessibility'],
+	},
+	{
+		title: 'Data & API',
+		note: 'Wiring UI to data without turning state into a mess.',
+		tags: ['REST API', 'GraphQL', 'Laravel', 'PostgreSQL', 'Redux', 'Zustand'],
+	},
+	{
+		title: 'Workflow',
+		note: 'Code review, tests, and pipelines that keep quality steady.',
+		tags: ['Git', 'Code review', 'Jest', 'React Testing Library', 'GitLab CI', 'Docker'],
+	},
+];
+---
+
+<section id="skills" class="section-tight">
+	<div class="shell">
+		<ChapterLabel index="02" title="Skills" note="Four areas, one standard" />
+
+		<div class="mt-10 grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-end lg:gap-16">
+			<h2 class="display-l text-balance" data-reveal="up">Tools I use every day.</h2>
+			<p class="max-w-[52ch] text-base leading-8 text-muted" data-reveal="up" style="--d: 100ms">
+				Not a long list to look complete. These are the tools I actually use to ship products, keep quality up, and
+				help a team move without drama.
 			</p>
 		</div>
 
-		<div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-			<div class="card reveal p-6" data-reveal>
-				<div class="text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">Frontend</div>
-				<div class="mt-4 flex flex-wrap gap-2">
-					<span class="tag">React</span>
-					<span class="tag">React Native</span>
-					<span class="tag">Next.js</span>
-					<span class="tag">AngularJS</span>
-					<span class="tag">TypeScript</span>
-					<span class="tag">SSR</span>
-					<span class="tag">PWA</span>
+		<div class="mt-10 border-t border-line">
+			{groups.map((group, i) => (
+				<div class="skill-row" data-reveal="up" style={`--d: ${i * 80}ms`}>
+					<span class="skill-index overline text-muted" aria-hidden="true">0{i + 1}</span>
+					<h3 class="display-m">{group.title}</h3>
+					<div class="min-w-0">
+						<p class="skill-note max-w-[44ch] text-sm leading-7">{group.note}</p>
+						<p class="skill-tag mt-2.5">{group.tags.join(' · ')}</p>
+					</div>
 				</div>
-			</div>
-			<div class="card reveal p-6" data-reveal>
-				<div class="text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">UI / Styling</div>
-				<div class="mt-4 flex flex-wrap gap-2">
-					<span class="tag">A11y</span>
-					<span class="tag">Design System</span>
-					<span class="tag">Tailwind CSS</span>
-					<span class="tag">SASS</span>
-					<span class="tag">Material UI</span>
-				</div>
-			</div>
-			<div class="card reveal p-6" data-reveal>
-				<div class="text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">API & Tools</div>
-				<div class="mt-4 flex flex-wrap gap-2">
-					<span class="tag">REST API</span>
-					<span class="tag">GraphQL</span>
-					<span class="tag">Laravel</span>
-					<span class="tag">PostgreSQL</span>
-					<span class="tag">Redux</span>
-					<span class="tag">Zustand</span>
-					<span class="tag">Postman</span>
-				</div>
-			</div>
-			<div class="card reveal p-6" data-reveal>
-				<div class="text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">Workflow</div>
-				<div class="mt-4 flex flex-wrap gap-2">
-					<span class="tag">Git</span>
-					<span class="tag">Code review</span>
-					<span class="tag">Jest</span>
-					<span class="tag">React Testing Library</span>
-					<span class="tag">GitLab CI</span>
-					<span class="tag">Docker</span>
-				</div>
-			</div>
+			))}
 		</div>
 	</div>
 </section>

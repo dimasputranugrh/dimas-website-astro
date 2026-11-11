@@ -1,65 +1,104 @@
-<section id="experience" class="py-16 sm:py-20">
-	<div class="mx-auto max-w-6xl px-5">
-		<div class="grid gap-3">
-			<h2 class="reveal text-2xl font-semibold tracking-tight text-zinc-950 dark:text-white" data-reveal>Pengalaman</h2>
-			<p class="reveal max-w-[78ch] text-pretty text-base leading-7 text-zinc-600 dark:text-zinc-300" data-reveal>
-				Riwayat kerja yang membentuk cara saya membangun produk: UI rapi, performa tinggi, dan kolaborasi yang sehat.
-			</p>
-		</div>
+---
+import ChapterLabel from '../ChapterLabel.astro';
 
-		<div class="mt-8 grid gap-4">
-			<div class="card reveal p-6" data-reveal>
-				<div class="flex flex-wrap items-baseline justify-between gap-2">
-					<div class="text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">Lead Frontend Developer</div>
-					<div class="text-xs font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">2022 — Saat ini</div>
-				</div>
-				<div class="mt-1 text-sm font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">PT. Monex Investindo Futures (MIFX)</div>
-				<ul class="mt-4 grid gap-2 text-sm leading-7 text-zinc-600 dark:text-zinc-300">
-					<li>Membangun Website MIFX.</li>
-					<li>Membangun dashboard CRM untuk back-office dan sales.</li>
-					<li>Membangun Website dan Dashboard CRM untuk AMB MEGATREND</li>
-					<li>Menerapkan Next.js untuk reusability, performance, dan consistency.</li>
-					<li>Memimpin tim, menjaga standar lewat code review dan mentoring.</li>
-					<li>Menjaga performa halaman dengan skor Lighthouse 95+.</li>
-				</ul>
+const roles = [
+	{
+		period: '2022 - now',
+		role: 'Lead Frontend Developer',
+		company: 'PT. Monex Investindo Futures (MIFX)',
+		points: [
+			'Rebuilt the MIFX website with Next.js.',
+			'Built a CRM dashboard for back office and sales.',
+			'Built the website and CRM dashboard for AMB Megatrend.',
+			'Led the frontend team through code review and mentoring.',
+			'Kept pages performing at a Lighthouse score of 95+.',
+		],
+	},
+	{
+		period: '2020 - 2022',
+		role: 'Frontend Developer',
+		company: 'PT. Boomboomcar Media Indonesia (DXTR Asia)',
+		points: [
+			'Built responsive web and PWA for AYO SRC Sampoerna.',
+			'Built the AYO SRC mobile app with React Native.',
+			'Handled UX, accessibility, and performance across devices.',
+		],
+	},
+	{
+		period: '2019 - 2020',
+		role: 'Fullstack Developer',
+		company: 'PT. Multi Kontrol Nusantara (Bakrie Company)',
+		points: [
+			'Developed an IoT dashboard for real-time data monitoring.',
+			'Built LoRa-based IoT solutions for long-range communication.',
+			'Implemented the UI with AngularJS and field data integration.',
+		],
+	},
+	{
+		period: '2017',
+		role: 'Backend Developer',
+		company: 'PT. Lapi Divusi',
+		points: [
+			'Integrated the SKKMIGAS backend with Laravel.',
+			'Kept data flowing between frontend and backend applications.',
+			'Supported operational and regulatory needs in the energy sector.',
+		],
+	},
+];
+---
+
+<section id="experience" class="section-tight">
+	<div class="shell">
+		<ChapterLabel index="04" title="Experience" note="2017 to now" />
+
+		<div class="mt-12 grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
+			<div class="lg:sticky lg:top-28 lg:self-start">
+				<h2 class="display-l text-balance" data-reveal="up">Seven years, four teams.</h2>
+				<p class="mt-6 max-w-[44ch] text-base leading-8 text-muted" data-reveal="up" style="--d: 100ms">
+					From Laravel backend to frontend, then leading the frontend team at MIFX. Each role added a layer: reading
+					a system, holding the UI together, and getting a team moving.
+				</p>
+				<p class="mt-8 font-mono text-[10px] uppercase leading-6 tracking-[0.14em] text-muted" data-reveal="up" style="--d: 180ms">
+					Open any role to see the detail.
+				</p>
 			</div>
-			<div class="card reveal p-6" data-reveal>
-				<div class="flex flex-wrap items-baseline justify-between gap-2">
-					<div class="text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">Frontend Developer</div>
-					<div class="text-xs font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">2020 — 2022</div>
-				</div>
-				<div class="mt-1 text-sm font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">PT. Boomboomcar Media Indonesia (DXTR Asia)</div>
-				<ul class="mt-4 grid gap-2 text-sm leading-7 text-zinc-600 dark:text-zinc-300">
-					<li>Membangun web responsif dan PWA untuk AYO SRC Sampoerna.</li>
-					<li>Membangun aplikasi mobile untuk AYO SRC dengan React Native.</li>
-					<li>Fokus pada UX, aksesibilitas, dan performa lintas perangkat.</li>
-				</ul>
-			</div>
-			<div class="card reveal p-6" data-reveal>
-				<div class="flex flex-wrap items-baseline justify-between gap-2">
-					<div class="text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">Fullstack Developer</div>
-					<div class="text-xs font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">2019 — 2020</div>
-				</div>
-				<div class="mt-1 text-sm font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">PT. Multi Kontrol Nusantara (Bakrie Company)</div>
-				<ul class="mt-4 grid gap-2 text-sm leading-7 text-zinc-600 dark:text-zinc-300">
-					<li>Mengembangkan dashboard IoT untuk monitoring data real-time.</li>
-					<li>Membangun solusi IoT berbasis LoRa untuk komunikasi jarak jauh.</li>
-					<li>Implementasi UI dengan AngularJS dan integrasi data lapangan.</li>
-				</ul>
-			</div>
-			<div class="card reveal p-6" data-reveal>
-				<div class="flex flex-wrap items-baseline justify-between gap-2">
-					<div class="text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">Backend Developer</div>
-					<div class="text-xs font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">2017</div>
-				</div>
-				<div class="mt-1 text-sm font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">PT. Lapi Divusi</div>
-				<ul class="mt-4 grid gap-2 text-sm leading-7 text-zinc-600 dark:text-zinc-300">
-					<li>Integrasi backend untuk sistem SKKMIGAS menggunakan Laravel.</li>
-					<li>Menjaga aliran data aman antara aplikasi frontend dan backend.</li>
-					<li>Mendukung kebutuhan operasional dan regulasi sektor energi.</li>
-				</ul>
+
+			<div class="border-t border-line">
+				{roles.map((job, i) => (
+					<div class:list={['exp-item', { 'is-open': i === 0 }]} data-accordion data-reveal="up" style={`--d: ${i * 70}ms`}>
+						<h3>
+							<button
+								class="exp-trigger"
+								type="button"
+								id={`exp-trigger-${i}`}
+								aria-expanded={i === 0 ? 'true' : 'false'}
+								aria-controls={`exp-panel-${i}`}
+								data-accordion-trigger
+							>
+								<span class="exp-year">{job.period}</span>
+								<span class="exp-role">{job.role}</span>
+								<span class="exp-company">{job.company}</span>
+								<span class="exp-indicator" aria-hidden="true"></span>
+							</button>
+						</h3>
+						<div
+							class="exp-panel"
+							id={`exp-panel-${i}`}
+							role="region"
+							aria-labelledby={`exp-trigger-${i}`}
+							data-accordion-panel
+						>
+							<div>
+								<ul class="exp-body grid gap-2 text-sm leading-7 text-muted">
+									{job.points.map((point) => (
+										<li>{point}</li>
+									))}
+								</ul>
+							</div>
+						</div>
+					</div>
+				))}
 			</div>
 		</div>
 	</div>
 </section>
-

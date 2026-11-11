@@ -1,4 +1,9 @@
 ---
+import { getImage } from 'astro:assets';
+import ChapterLabel from '../ChapterLabel.astro';
+import ProjectRow from '../ProjectRow.astro';
+import karyaAmb from '../../assets/amb.png';
+import karyaAmbMegatrand from '../../assets/ambmegatrand.png';
 import karyaClientArea from '../../assets/clientarea.png';
 import karyaDelight from '../../assets/delight.png';
 import karyaEngage from '../../assets/engage.png';
@@ -7,109 +12,181 @@ import karyaMifx from '../../assets/mifx.png';
 import karyaMigas from '../../assets/migas.png';
 import karyaMitra from '../../assets/mitra.png';
 import karyaPaguyuban from '../../assets/paguyuban.png';
+import karyaPgri from '../../assets/pgri.png';
 import karyaPrincipal from '../../assets/principal.png';
 import karyaSrc from '../../assets/src.png';
+import karyaStorybook from '../../assets/storybook.png';
 import karyaUpt from '../../assets/upt.png';
 import karyaZum from '../../assets/zum.png';
 import karyaZumIot from '../../assets/zumiot.png';
-import karyaStorybook from '../../assets/storybook.png';
-import karyaPgri from '../../assets/pgri.png';
-import karyaAmb from '../../assets/amb.png';
-import karyaAmbMegatrand from '../../assets/ambmegatrand.png';
 
-const featuredProjectsCount = 3;
-const projects = [
+const rawProjects = [
 	{ title: 'MIFX', tag: 'Fintech', image: karyaMifx, stack: ['Next.js', 'React', 'Tailwind', 'Zustand', 'TypeScript', 'SEO'] },
 	{ title: 'AYO SRC', tag: 'Fintech', image: karyaSrc, stack: ['PWA', 'Angular', 'TypeScript', 'Performance', 'SEO'] },
 	{ title: 'SKK Migas', tag: 'Enterprise', image: karyaMigas, stack: ['Laravel', 'REST API', 'UI', 'Security'] },
 	{ title: 'MIFX Client Area', tag: 'Dashboard', image: karyaClientArea, stack: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'API'] },
-	{ title: 'Kasir', tag: 'Product Dashboard', image: karyaKasir, stack: ['Angular', 'PWA', 'TypeScript', 'Tailwind', 'State'] },
-	{ title: 'AMB', tag: 'Company Product', image: karyaAmb, stack: ['Astro', 'TypeScript', 'Tailwind', 'UI', 'DX'] },
-	{ title: 'AMB Megatrand', tag: 'Company Product', image: karyaAmbMegatrand, stack: ['Astro', 'TypeScript', 'Tailwind', 'UI', 'DX'] },
-	{ title: 'ZUM IoT', tag: 'Dashboard Product', image: karyaZum, stack: ['Angular', 'IoT', 'Dashboard', 'Realtime', 'UI'] },
-	{ title: 'ZUM IoT', tag: 'Company Product', image: karyaZumIot, stack: ['PHP Native', 'UI', 'DX'] },
-	{ title: 'UPT', tag: 'App', image: karyaUpt, stack: ['Web GIS', 'UI', 'API', 'Performance', 'Leaflet', 'OpenLayers', 'GeoJSON', 'PHP'] },
+	{ title: 'Kasir', tag: 'Product dashboard', image: karyaKasir, stack: ['Angular', 'PWA', 'TypeScript', 'Tailwind', 'State'] },
+	{ title: 'AMB', tag: 'Company product', image: karyaAmb, stack: ['Astro', 'TypeScript', 'Tailwind', 'UI', 'DX'] },
+	{ title: 'AMB Megatrand', tag: 'Company product', image: karyaAmbMegatrand, stack: ['Astro', 'TypeScript', 'Tailwind', 'UI', 'DX'] },
+	{ title: 'ZUM IoT', tag: 'Dashboard product', image: karyaZum, stack: ['Angular', 'IoT', 'Dashboard', 'Realtime', 'UI'] },
+	{ title: 'ZUM IoT', tag: 'Company product', image: karyaZumIot, stack: ['PHP Native', 'UI', 'DX'] },
+	{ title: 'UPT', tag: 'Web GIS', image: karyaUpt, stack: ['Web GIS', 'Leaflet', 'OpenLayers', 'GeoJSON', 'PHP'] },
 	{ title: 'Principal', tag: 'Web', image: karyaPrincipal, stack: ['Angular', 'UI', 'Responsive', 'DX'] },
 	{ title: 'Mitra', tag: 'Web', image: karyaMitra, stack: ['Angular', 'UI', 'Responsive', 'DX'] },
 	{ title: 'Paguyuban', tag: 'Community', image: karyaPaguyuban, stack: ['Angular', 'UI', 'Content', 'DX'] },
 	{ title: 'Engage', tag: 'Dashboard', image: karyaEngage, stack: ['Next.js', 'React', 'Dashboard', 'UI', 'Performance'] },
-	{ title: 'Delight', tag: 'Dashboard', image: karyaDelight, stack: ['Next.js', 'React', 'Dashboard', 'UI', 'Backoffice'] },
+	{ title: 'Delight', tag: 'Dashboard', image: karyaDelight, stack: ['Next.js', 'React', 'Dashboard', 'Backoffice'] },
 	{ title: 'Storybook', tag: 'Documentation', image: karyaStorybook, stack: ['Storybook', 'UI', 'Component', 'Documentation'] },
 	{ title: 'PGRI', tag: 'Community', image: karyaPgri, stack: ['Website', 'UI', 'Content', 'SEO'] },
 ];
+
+const projects = await Promise.all(
+	rawProjects.map(async (project) => {
+		const preview = await getImage({ src: project.image, width: 1400, format: 'webp', quality: 78 });
+		return {
+			...project,
+			previewSrc: preview.src,
+			width: project.image.width,
+			height: project.image.height,
+		};
+	})
+);
+
+const featuredCount = 5;
+const featured = projects.slice(0, featuredCount);
+const rest = projects.slice(featuredCount);
+const first = projects[0];
+const total = projects.length;
 ---
 
-<section id="projects" class="py-16 sm:py-20">
-	<div class="mx-auto max-w-6xl px-5">
-		<div class="grid gap-3">
-			<h2 class="reveal text-2xl font-semibold tracking-tight text-zinc-950 dark:text-white" data-reveal>Karya</h2>
-			<p class="reveal max-w-[78ch] text-pretty text-base leading-7 text-zinc-600 dark:text-zinc-300" data-reveal>
-				Pilihan karya yang nunjukin fokus saya: UI rapi, performa cepat, dan detail yang konsisten.
+<section id="work" class="section">
+	<div class="shell">
+		<ChapterLabel index="03" title="Work" note={`${featuredCount} selected, ${total} total`} />
+
+		<div class="mt-10 grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-end lg:gap-16">
+			<h2 class="display-l text-balance" data-reveal="up">Selected work.</h2>
+			<p class="max-w-[52ch] text-base leading-8 text-muted" data-reveal="up" style="--d: 100ms">
+				One page isn't enough for all of it. These five best show how I work, and the other twelve are in the full
+				list. Open any project to see the full screenshot and the stack behind it.
 			</p>
 		</div>
 
-		<div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-			{projects.slice(0, featuredProjectsCount).map((project) => (
-				<button
-					class="card group reveal w-full cursor-pointer overflow-hidden p-6 text-left transition hover:-translate-y-1 hover:shadow-premium dark:hover:shadow-black/50"
-					data-reveal
-					type="button"
-					aria-label={`Karya: ${project.title}`}
-				>
-					<div class="aspect-video w-full overflow-hidden rounded-2xl bg-zinc-950/5 dark:bg-white/10">
-						<img
-							class="h-full w-full object-contain p-2 grayscale transition duration-500 ease-out group-hover:grayscale-0 group-hover:saturate-110 group-hover:contrast-105"
-							src={project.image.src}
-							alt={project.title}
-							loading="lazy"
-							decoding="async"
-						/>
+		<div class="mt-12 grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
+			<div class="hidden lg:block">
+				<div class="sticky top-28">
+					<div class="preview-frame" data-reveal="scale">
+						<div class="preview-media">
+							<img
+								data-preview-img
+								src={first.previewSrc}
+								width={first.width}
+								height={first.height}
+								alt={`Interface preview of ${first.title}`}
+								loading="lazy"
+								decoding="async"
+							/>
+						</div>
+						<div class="preview-meta">
+							<span data-preview-index>01 / {String(total).padStart(2, '0')}</span>
+							<span class="text-ink" data-preview-title>{first.title}</span>
+							<span data-preview-tag>{first.tag}</span>
+						</div>
 					</div>
-					<div class="mt-5 flex items-start justify-between gap-4">
-						<div class="text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">{project.title}</div>
-						<span class="tag">{project.tag}</span>
-					</div>
-					<div class="mt-4 flex flex-wrap gap-2">
-						{project.stack.map((item) => (
-							<span class="tag">{item}</span>
-						))}
-					</div>
-				</button>
-			))}
-			{projects.slice(featuredProjectsCount).map((project) => (
-				<button
-					class="card group reveal hidden w-full cursor-pointer overflow-hidden p-6 text-left transition hover:-translate-y-1 hover:shadow-premium dark:hover:shadow-black/50"
-					data-reveal
-					data-project-extra
-					type="button"
-					aria-label={`Karya: ${project.title}`}
-				>
-					<div class="aspect-video w-full overflow-hidden rounded-2xl bg-zinc-950/5 dark:bg-white/10">
-						<img
-							class="h-full w-full object-contain p-2 grayscale transition duration-500 ease-out group-hover:grayscale-0 group-hover:saturate-110 group-hover:contrast-105"
-							src={project.image.src}
-							alt={project.title}
-							loading="lazy"
-							decoding="async"
-						/>
-					</div>
-					<div class="mt-5 flex items-start justify-between gap-4">
-						<div class="text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">{project.title}</div>
-						<span class="tag">{project.tag}</span>
-					</div>
-					<div class="mt-4 flex flex-wrap gap-2">
-						{project.stack.map((item) => (
-							<span class="tag">{item}</span>
-						))}
-					</div>
-				</button>
-			))}
-		</div>
+					<p class="mt-4 max-w-[34ch] text-xs leading-6 text-muted">
+						Hover a title to see the preview. Click to open the full image.
+					</p>
+					<div class="mt-6 h-px w-full bg-line" aria-hidden="true"></div>
+					<p class="mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
+						From fintech to Web GIS
+					</p>
+				</div>
+			</div>
 
-		<div class="reveal mt-6 flex flex-wrap items-center gap-3" data-reveal>
-			<button class="btn-primary" type="button" data-projects-toggle data-open-label="Lihat Semua Karya" data-close-label="Tutup Karya">
-				Lihat Semua Karya
-			</button>
+			<div>
+				<div class="border-t border-line" data-project-list>
+					{featured.map((project, i) => (
+						<ProjectRow
+							title={project.title}
+							tag={project.tag}
+							stack={project.stack}
+							previewSrc={project.previewSrc}
+							width={project.width}
+							height={project.height}
+							index={i + 1}
+							total={total}
+						/>
+					))}
+
+					<div class="project-extra" id="project-extra" data-project-extra hidden inert>
+						<div>
+							{rest.map((project, i) => (
+								<ProjectRow
+									title={project.title}
+									tag={project.tag}
+									stack={project.stack}
+									previewSrc={project.previewSrc}
+									width={project.width}
+									height={project.height}
+									index={featuredCount + i + 1}
+									total={total}
+								/>
+							))}
+						</div>
+					</div>
+				</div>
+
+				<div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+					<button
+						class="btn btn-line btn-small"
+						type="button"
+						data-projects-toggle
+						aria-expanded="false"
+						aria-controls="project-extra"
+					>
+						<span data-projects-label>See all {total} projects</span>
+						<span class="btn-dot" aria-hidden="true"></span>
+					</button>
+					<p class="font-mono text-[10px] uppercase tracking-[0.14em] text-muted">Click a project for detail</p>
+				</div>
+			</div>
 		</div>
 	</div>
+
+	<dialog class="project-dialog" data-project-dialog aria-labelledby="project-dialog-title">
+		<div class="relative">
+			<button class="icon-btn absolute right-3 top-3 z-10 bg-paper" type="button" data-dialog-close aria-label="Close project detail" autofocus>
+				<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+					<path d="M2 2l12 12M14 2L2 14" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+				</svg>
+			</button>
+
+			<div class="grid md:grid-cols-[1.15fr_0.85fr]">
+				<div class="dialog-media">
+					<img
+						data-dialog-img
+						src={first.previewSrc}
+						width={first.width}
+						height={first.height}
+						alt={`Interface preview of ${first.title}`}
+						loading="lazy"
+						decoding="async"
+					/>
+				</div>
+				<div class="flex flex-col p-6 sm:p-8">
+					<div class="overline text-accent" data-dialog-index>01 / {String(total).padStart(2, '0')}</div>
+					<h2 class="display-m mt-3" id="project-dialog-title" data-dialog-title>{first.title}</h2>
+					<div class="overline mt-2 text-muted" data-dialog-tag>{first.tag}</div>
+
+					<div class="mt-6 border-t border-line pt-4">
+						<div class="overline text-muted">Stack</div>
+						<ul class="dialog-stack mt-3 text-sm" data-dialog-stack></ul>
+					</div>
+
+					<p class="mt-auto pt-8 text-xs leading-6 text-muted">
+						Interface preview. Press Esc or click outside to close.
+					</p>
+				</div>
+			</div>
+		</div>
+	</dialog>
 </section>

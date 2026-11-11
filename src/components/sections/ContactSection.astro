@@ -1,70 +1,135 @@
-<section id="contact" class="py-16 sm:py-20">
-	<div class="mx-auto max-w-6xl px-5">
-		<div class="grid gap-3">
-			<h2 class="reveal text-2xl font-semibold tracking-tight text-zinc-950 dark:text-white" data-reveal>Kontak</h2>
-			<p class="reveal max-w-[78ch] text-pretty text-base leading-7 text-zinc-600 dark:text-zinc-300" data-reveal>
-				Punya ide, butuh bantuan UI, atau mau diskusi project? Kirim brief singkat — saya respon cepat.
-			</p>
-		</div>
+---
+import ChapterLabel from '../ChapterLabel.astro';
+---
 
-			<div class="mt-8 grid gap-4 lg:grid-cols-2">
-				<div class="card reveal p-6" data-reveal>
-					<div class="text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">Ceritain kebutuhanmu</div>
-					<p class="mt-3 text-sm leading-7 text-zinc-600 dark:text-zinc-300">
-						Kirim ringkas: tujuan, fitur utama, referensi desain, dan deadline. Saya balas dengan breakdown scope, estimasi, dan langkah next.
-					</p>
-					<div class="mt-5 flex flex-wrap gap-2">
-						<a class="btn-primary" href="mailto:dimasputranugrh@gmail.com">Email Saya</a>
-						<a class="btn-ghost" href="https://www.linkedin.com/in/dimasputranugrh/" target="_blank" rel="noreferrer">LinkedIn</a>
-					</div>
-				<div class="mt-6 grid grid-cols-2 gap-3 border-t border-zinc-950/10 pt-5 dark:border-white/10">
-					<div>
-						<div class="text-xs font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">Lokasi</div>
-						<div class="mt-1 text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">Indonesia</div>
-					</div>
-					<div>
-						<div class="text-xs font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">Ketersediaan</div>
-						<div class="mt-1 text-sm font-semibold tracking-tight text-zinc-950 dark:text-white">Freelance</div>
-					</div>
+<section id="contact" class="section pb-24 sm:pb-28">
+	<div class="shell">
+		<ChapterLabel index="05" title="Contact" note="Replies by email" />
+
+		<div class="mt-12 grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+			<div class="min-w-0">
+				<h2 class="display-xl text-balance" data-reveal="up">
+					Let's <span class="italic">talk.</span>
+				</h2>
+				<p class="mt-6 max-w-[42ch] text-base leading-8 text-muted" data-reveal="up" style="--d: 100ms">
+					Send a short brief: goal, main features, references, and deadline. I reply by email.
+				</p>
+
+				<div class="mt-8" data-reveal="up" style="--d: 180ms">
+					<button
+						class="copy-email"
+						type="button"
+						data-copy-email
+						data-email="dimasputranugrh@gmail.com"
+						aria-label="Copy email address dimasputranugrh@gmail.com"
+					>
+						<span class="min-w-0">dimasputranugrh@gmail.com</span>
+						<span class="copy-label" data-copy-label aria-live="polite">Copy</span>
+					</button>
 				</div>
+
+				<dl class="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-line pt-6" data-reveal="up" style="--d: 240ms">
+					<div>
+						<dt class="overline text-muted">Location</dt>
+						<dd class="mt-1.5 text-sm font-semibold">Indonesia</dd>
+					</div>
+					<div>
+						<dt class="overline text-muted">Time</dt>
+						<dd class="mt-1.5 text-sm font-semibold">WIB <span data-clock>--:--</span></dd>
+					</div>
+					<div>
+						<dt class="overline text-muted">Status</dt>
+						<dd class="mt-1.5 inline-flex items-center gap-2 text-sm font-semibold">
+							<span class="h-1.5 w-1.5 bg-accent" aria-hidden="true"></span>
+							Open to freelance
+						</dd>
+					</div>
+					<div>
+						<dt class="overline text-muted">LinkedIn</dt>
+						<dd class="mt-1.5 text-sm font-semibold">
+							<a
+								class="underline decoration-line-strong underline-offset-4 hover:decoration-accent"
+								href="https://www.linkedin.com/in/dimasputranugrh/"
+								target="_blank"
+								rel="noreferrer">dimasputranugrh</a
+							>
+						</dd>
+					</div>
+				</dl>
 			</div>
 
-			<form class="card reveal grid gap-3 p-6 sm:grid-cols-2" name="contact" method="POST" action="/#contact" data-netlify="true" netlify-honeypot="bot-field" data-reveal>
+			<form
+				class="form-shell"
+				name="contact"
+				method="POST"
+				action="/#contact"
+				data-netlify="true"
+				netlify-honeypot="bot-field"
+				data-contact-form
+				data-reveal="up"
+				style="--d: 160ms"
+			>
 				<input type="hidden" name="form-name" value="contact" />
-				<label class="hidden">
-					<span>Don’t fill this out if you’re human:</span>
-					<input name="bot-field" />
+				<label class="hidden" aria-hidden="true">
+					<span>Leave this empty:</span>
+					<input name="bot-field" tabindex="-1" autocomplete="off" />
 				</label>
-				<label class="grid gap-2">
-					<span class="text-xs font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">Nama</span>
-					<input
-						class="h-11 rounded-2xl border border-zinc-950/10 bg-white/70 px-4 text-sm font-semibold tracking-tight text-zinc-900 shadow-sm outline-none transition focus:border-zinc-950/30 focus:bg-white dark:border-white/10 dark:bg-white/5 dark:text-white dark:focus:border-white/25 dark:focus:bg-white/10"
-						name="name"
-						placeholder="Nama kamu"
-						autocomplete="name"
-					/>
-				</label>
-				<label class="grid gap-2">
-					<span class="text-xs font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">Email</span>
-					<input
-						class="h-11 rounded-2xl border border-zinc-950/10 bg-white/70 px-4 text-sm font-semibold tracking-tight text-zinc-900 shadow-sm outline-none transition focus:border-zinc-950/30 focus:bg-white dark:border-white/10 dark:bg-white/5 dark:text-white dark:focus:border-white/25 dark:focus:bg-white/10"
-						name="email"
-						placeholder="email@domain.com"
-						autocomplete="email"
-					/>
-				</label>
-				<label class="grid gap-2 sm:col-span-2">
-					<span class="text-xs font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">Pesan</span>
-					<textarea
-						class="min-h-[140px] rounded-2xl border border-zinc-950/10 bg-white/70 px-4 py-3 text-sm font-semibold tracking-tight text-zinc-900 shadow-sm outline-none transition focus:border-zinc-950/30 focus:bg-white dark:border-white/10 dark:bg-white/5 dark:text-white dark:focus:border-white/25 dark:focus:bg-white/10"
-						name="message"
-						rows="5"
-						placeholder="Ceritain projectmu..."
-					></textarea>
-				</label>
-				<div class="flex flex-wrap items-center justify-between gap-3 sm:col-span-2">
-					<button class="btn-primary" type="submit">Kirim Pesan</button>
-					<span class="text-xs font-semibold tracking-tight text-zinc-600 dark:text-zinc-300">Pesan akan terkirim, saya balas via email.</span>
+
+				<div class="grid gap-6" data-form-fields>
+					<label class="grid gap-2" for="contact-name">
+						<span class="field-label">Name</span>
+						<input
+							class="field-input"
+							id="contact-name"
+							name="name"
+							type="text"
+							placeholder="Your name"
+							autocomplete="name"
+							required
+						/>
+					</label>
+
+					<label class="grid gap-2" for="contact-email">
+						<span class="field-label">Email</span>
+						<input
+							class="field-input"
+							id="contact-email"
+							name="email"
+							type="email"
+							placeholder="you@email.com"
+							autocomplete="email"
+							required
+						/>
+					</label>
+
+					<label class="grid gap-2" for="contact-message">
+						<span class="field-label">Message</span>
+						<textarea
+							class="field-input"
+							id="contact-message"
+							name="message"
+							rows="5"
+							placeholder="Tell me about the project..."
+							required></textarea>
+					</label>
+
+					<div class="flex flex-wrap items-center justify-between gap-4">
+						<button class="btn btn-primary magnetic w-full sm:w-auto" type="submit" data-submit>
+							<span class="btn-dot" aria-hidden="true"></span>
+							<span data-submit-label>Send message</span>
+						</button>
+						<p class="font-mono text-[10px] uppercase leading-5 tracking-[0.12em] text-muted">
+							I reply by email
+						</p>
+					</div>
+
+					<p class="form-status" data-form-status role="status" aria-live="polite"></p>
+				</div>
+
+				<div class="form-success" data-form-success hidden>
+					<p class="display-m">Message sent.</p>
+					<p class="mt-2 text-sm leading-7 text-muted">I'll reply by email.</p>
+					<button class="btn btn-line btn-small mt-5" type="button" data-form-reset>Send another message</button>
 				</div>
 			</form>
 		</div>

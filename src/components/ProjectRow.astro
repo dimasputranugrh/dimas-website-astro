@@ -1,0 +1,41 @@
+---
+interface Props {
+	title: string;
+	tag: string;
+	stack: string[];
+	previewSrc: string;
+	width: number;
+	height: number;
+	index: number;
+	total: number;
+}
+
+const { title, tag, stack, previewSrc, width, height, index, total } = Astro.props;
+const displayIndex = String(index).padStart(2, '0');
+const displayTotal = String(total).padStart(2, '0');
+---
+
+<button
+	class="project-row"
+	type="button"
+	data-project
+	data-index={`${displayIndex} / ${displayTotal}`}
+	data-title={title}
+	data-tag={tag}
+	data-stack={stack.join(',')}
+	data-img={previewSrc}
+	data-width={width}
+	data-height={height}
+	aria-haspopup="dialog"
+	aria-label={`Open details for ${title}, ${tag}`}
+>
+	<span class="project-index overline" aria-hidden="true">{displayIndex}</span>
+	<span class="min-w-0">
+		<span class="block font-display text-[1.4rem] leading-none tracking-[-0.02em] sm:text-[1.55rem]">{title}</span>
+		<span class="project-sub mt-1.5 block font-mono text-[10px] uppercase tracking-[0.14em]">{tag}</span>
+	</span>
+	<span class="project-sub hidden font-mono text-[10px] uppercase leading-5 tracking-[0.1em] lg:block">
+		{stack.slice(0, 3).join(' / ')}
+	</span>
+	<span class="project-open justify-self-end font-mono text-[10px] uppercase tracking-[0.14em]">Open</span>
+</button>

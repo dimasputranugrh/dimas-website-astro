@@ -1,0 +1,15 @@
+---
+interface Props {
+	index: string;
+	title: string;
+	note?: string;
+}
+
+const { index, title, note } = Astro.props;
+---
+
+<div class="chapter" data-reveal="line">
+	<span class="chapter-index">{index}</span>
+	<span class="chapter-title">{title}</span>
+	{note && <span class="chapter-note">{note}</span>}
+</div>

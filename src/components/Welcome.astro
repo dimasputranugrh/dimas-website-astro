@@ -1,6 +1,4 @@
 ---
-import background from '../assets/background.svg';
-
 import AboutSection from './sections/AboutSection.astro';
 import ContactSection from './sections/ContactSection.astro';
 import ExperienceSection from './sections/ExperienceSection.astro';
@@ -12,44 +10,21 @@ import SkillsSection from './sections/SkillsSection.astro';
 ---
 
 <a
-	class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-xl focus:border focus:border-zinc-950/10 focus:bg-white/80 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-900 focus:shadow-sm focus:backdrop-blur dark:focus:border-white/10 dark:focus:bg-white/10 dark:focus:text-white"
-	href="#main"
-	>Skip to content</a
+	class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-sm focus:border focus:border-ink focus:bg-paper focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-ink"
+	href="#main">Skip to content</a
 >
 
-<div class="relative min-h-screen overflow-x-hidden">
-	<img
-		class="pointer-events-none fixed inset-0 -z-30 h-full w-full select-none opacity-20 blur-3xl grayscale"
-		src={background.src}
-		alt=""
-		fetchpriority="high"
-		decoding="async"
-	/>
-	<div
-		class="pointer-events-none fixed -left-44 -top-56 -z-20 h-[40rem] w-[40rem] animate-blob rounded-full bg-zinc-950/5 blur-3xl mix-blend-multiply dark:bg-white/5 dark:mix-blend-screen"
-		aria-hidden="true"
-	></div>
-	<div
-		class="pointer-events-none fixed -bottom-64 -right-64 -z-20 h-[44rem] w-[44rem] animate-blob rounded-full bg-zinc-950/5 blur-3xl mix-blend-multiply [animation-delay:1.6s] dark:bg-white/5 dark:mix-blend-screen"
-		aria-hidden="true"
-	></div>
-	<div
-		class="pointer-events-none fixed inset-0 -z-10 opacity-20 [background-image:linear-gradient(to_right,rgba(255,255,255,0.14)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:radial-gradient(circle_at_50%_0%,black_0%,rgba(0,0,0,0.7)_45%,transparent_74%)] dark:opacity-25"
-		aria-hidden="true"
-	></div>
+<SiteHeader />
 
-	<SiteHeader />
+<main id="main" class="pt-16 lg:pt-[72px]">
+	<HeroSection />
+	<AboutSection />
+	<SkillsSection />
+	<ProjectsSection />
+	<ExperienceSection />
+	<ContactSection />
+</main>
 
-	<main id="main" class="pt-[72px]">
-		<HeroSection />
-		<AboutSection />
-		<SkillsSection />
-		<ProjectsSection />
-		<ExperienceSection />
-		<ContactSection />
-	</main>
-
-	<SiteFooter />
-</div>
+<SiteFooter />
 
 <script src="../scripts/landing.ts"></script>

@@ -1,37 +1,111 @@
-<header
-	class="site-header fixed inset-x-0 top-0 z-40 border-b border-zinc-950/10 bg-white/70 backdrop-blur transition dark:border-white/10 dark:bg-zinc-950/60"
-	data-header
->
-	<div class="mx-auto flex min-w-0 max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-3 sm:flex-nowrap sm:px-5">
-		<a class="group inline-flex min-w-0 items-center gap-3" href="#top" aria-label="Kembali ke atas">
-			<span
-				class="grid h-10 w-10 place-items-center rounded-2xl bg-zinc-950 text-sm font-extrabold tracking-tight text-white shadow-premium shadow-black/10 transition group-hover:-translate-y-0.5 dark:bg-white dark:text-zinc-950"
-				aria-hidden="true"
-				>DP</span
-			>
-			<span class="max-w-[46vw] truncate text-sm font-semibold tracking-tight text-zinc-900 dark:text-white sm:max-w-none">Dimas Putra</span>
+<header class="site-header" data-header>
+	<div class="shell header-inner">
+		<a class="group inline-flex min-w-0 items-center gap-3" href="#top" aria-label="Dimas Putra, back to top">
+			<span class="brand-mark" aria-hidden="true">DP</span>
+			<span class="truncate text-sm font-semibold tracking-[-0.01em]">Dimas Putra</span>
 		</a>
 
-		<nav class="hidden items-center gap-1 rounded-full border border-zinc-950/10 bg-white/60 p-1 backdrop-blur dark:border-white/10 dark:bg-white/5 md:flex" aria-label="Navigasi utama">
-			<a class="nav-link" href="#about" data-nav="about">Tentang</a>
-			<a class="nav-link" href="#skills" data-nav="skills">Skill</a>
-			<a class="nav-link" href="#projects" data-nav="projects">Karya</a>
-			<a class="nav-link" href="#experience" data-nav="experience">Pengalaman</a>
-			<a class="nav-link" href="#contact" data-nav="contact">Kontak</a>
+		<nav class="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
+			<a class="nav-link" href="#about" data-nav>
+				<span class="nav-index" aria-hidden="true">01</span>
+				About
+			</a>
+			<a class="nav-link" href="#skills" data-nav>
+				<span class="nav-index" aria-hidden="true">02</span>
+				Skills
+			</a>
+			<a class="nav-link" href="#work" data-nav>
+				<span class="nav-index" aria-hidden="true">03</span>
+				Work
+			</a>
+			<a class="nav-link" href="#experience" data-nav>
+				<span class="nav-index" aria-hidden="true">04</span>
+				Experience
+			</a>
+			<a class="nav-link" href="#contact" data-nav>
+				<span class="nav-index" aria-hidden="true">05</span>
+				Contact
+			</a>
 		</nav>
 
-		<div class="flex flex-wrap items-center justify-end gap-2">
-			<button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle tema" title="Toggle tema">
-				<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-					<path
-						fill="currentColor"
-						d="M12 18.5a6.5 6.5 0 1 1 0-13a6.5 6.5 0 0 1 0 13Zm0-16.5a1 1 0 0 1 1 1v1.2a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1Zm0 18a1 1 0 0 1 1 1v1.2a1 1 0 0 1-2 0V21a1 1 0 0 1 1-1ZM2 12a1 1 0 0 1 1-1h1.2a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1Zm18 0a1 1 0 0 1 1-1h1.2a1 1 0 1 1 0 2H21a1 1 0 0 1-1-1ZM4.22 4.22a1 1 0 0 1 1.41 0l.85.85a1 1 0 1 1-1.41 1.41l-.85-.85a1 1 0 0 1 0-1.41Zm13.71 13.71a1 1 0 0 1 1.41 0l.85.85a1 1 0 1 1-1.41 1.41l-.85-.85a1 1 0 0 1 0-1.41ZM19.78 4.22a1 1 0 0 1 0 1.41l-.85.85a1 1 0 1 1-1.41-1.41l.85-.85a1 1 0 0 1 1.41 0ZM6.48 17.52a1 1 0 0 1 0 1.41l-.85.85a1 1 0 1 1-1.41-1.41l.85-.85a1 1 0 0 1 1.41 0Z"
-					/>
+		<div class="flex items-center gap-2">
+			<button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme" title="Switch theme">
+				<svg class="theme-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+					<circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+					<path d="M12 4a8 8 0 0 1 0 16Z" fill="currentColor"></path>
 				</svg>
 			</button>
-			<a class="btn-ghost hidden sm:inline-flex" href="#projects">Lihat Karya</a>
-			<a class="btn-primary" href="#contact">Kerja Bareng</a>
+			<a class="btn btn-line btn-small hidden sm:inline-flex" href="mailto:dimasputranugrh@gmail.com">Email</a>
+			<button
+				class="btn btn-line btn-small gap-2 lg:hidden"
+				type="button"
+				data-menu-toggle
+				aria-controls="mobile-menu"
+				aria-expanded="false"
+			>
+				<span>Menu</span>
+				<span class="grid gap-[3px]" aria-hidden="true">
+					<span class="block h-px w-3.5 bg-current"></span>
+					<span class="block h-px w-3.5 bg-current"></span>
+				</span>
+			</button>
 		</div>
 	</div>
+	<div class="scroll-progress" data-progress aria-hidden="true"></div>
 </header>
 
+<div id="mobile-menu" class="menu-panel lg:hidden" data-menu-panel aria-hidden="true" inert>
+	<div class="flex items-center justify-between">
+		<span class="inline-flex items-center gap-3">
+			<span class="brand-mark" aria-hidden="true">DP</span>
+			<span class="text-sm font-semibold tracking-[-0.01em]">Dimas Putra</span>
+		</span>
+		<button class="btn btn-line btn-small gap-2" type="button" data-menu-close aria-label="Close menu">
+			<span>Close</span>
+			<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+				<path d="M2 2l12 12M14 2L2 14" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+			</svg>
+		</button>
+	</div>
+
+	<nav class="mt-10 flex-1" aria-label="Mobile navigation">
+		<a class="menu-link" href="#about" data-nav data-menu-link style="--i: 0">
+			<span class="menu-index" aria-hidden="true">01</span>
+			About
+		</a>
+		<a class="menu-link" href="#skills" data-nav data-menu-link style="--i: 1">
+			<span class="menu-index" aria-hidden="true">02</span>
+			Skills
+		</a>
+		<a class="menu-link" href="#work" data-nav data-menu-link style="--i: 2">
+			<span class="menu-index" aria-hidden="true">03</span>
+			Work
+		</a>
+		<a class="menu-link" href="#experience" data-nav data-menu-link style="--i: 3">
+			<span class="menu-index" aria-hidden="true">04</span>
+			Experience
+		</a>
+		<a class="menu-link" href="#contact" data-nav data-menu-link style="--i: 4">
+			<span class="menu-index" aria-hidden="true">05</span>
+			Contact
+		</a>
+	</nav>
+
+	<div class="mt-10 grid gap-4 border-t border-line pt-5">
+		<a class="text-sm font-semibold underline decoration-line-strong underline-offset-4 hover:decoration-accent" href="mailto:dimasputranugrh@gmail.com">
+			dimasputranugrh@gmail.com
+		</a>
+		<div class="flex flex-wrap items-center justify-between gap-3">
+			<a
+				class="text-sm text-muted hover:text-ink"
+				href="https://www.linkedin.com/in/dimasputranugrh/"
+				target="_blank"
+				rel="noreferrer"
+				>LinkedIn</a
+			>
+			<span class="font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
+				WIB <span data-clock>--:--</span>
+			</span>
+		</div>
+	</div>
+</div>
