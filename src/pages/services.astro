@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ChapterLabel from '../components/ChapterLabel.astro';
+import SiteFooter from '../components/sections/SiteFooter.astro';
+
+const packages = [
+	{
+		name: 'Landing page',
+		price: 'Rp 1.500.000',
+		time: '3 to 5 working days',
+		note: 'One page that explains the offer, loads under two seconds, and works on a phone.',
+		includes: ['Copywriting from your brief', 'Responsive, accessible layout', 'Contact form or WhatsApp handoff', 'Deploy to your domain'],
+	},
+	{
+		name: 'Telegram or WhatsApp bot',
+		price: 'Rp 2.500.000',
+		time: '5 to 7 working days',
+		note: 'A bot that answers customers, logs orders, or pushes alerts without you watching a screen.',
+		includes: ['Command and reply flows', 'Sheet or database storage', 'Admin commands', 'Deploy on a VPS with restart protection'],
+	},
+	{
+		name: 'Dashboard and data pipeline',
+		price: 'Rp 4.000.000',
+		time: '7 to 10 working days',
+		note: 'The numbers your business already has, cleaned up and readable in one screen.',
+		includes: ['Source sync (API, sheet, or SQL)', 'Scheduled refresh', 'Charts and filters', 'Login and role access'],
+	},
+];
+---
+
+<Layout
+	title="Services, Dimas Putra"
+	description="Small, fixed-scope builds: landing pages, Telegram and WhatsApp bots, dashboards. Fixed price, fixed timeline, no retainer."
+>
+	<a
+		class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-sm focus:border focus:border-ink focus:bg-paper focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-ink"
+		href="#main">Skip to content</a
+	>
+
+	<header class="border-b border-line">
+		<div class="shell flex h-16 items-center justify-between">
+			<a class="inline-flex items-center gap-3" href="/" aria-label="Dimas Putra, back to portfolio">
+				<span class="brand-mark" aria-hidden="true">DP</span>
+				<span class="text-sm font-semibold tracking-[-0.01em]">Dimas Putra</span>
+			</a>
+			<nav class="flex items-center gap-4 text-sm" aria-label="Navigation">
+				<a class="nav-link" href="/">Portfolio</a>
+				<a class="btn btn-line btn-small" href="mailto:dimasputranugrh@gmail.com?subject=Project%20brief">Email</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+		<section class="section-tight">
+			<div class="shell">
+				<ChapterLabel index="01" title="Services" note="Fixed scope, fixed price" />
+
+				<div class="mt-10 grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-16">
+					<h1 class="display-l text-balance" data-reveal="up">Small builds, delivered in days.</h1>
+					<p class="max-w-[52ch] text-base leading-8 text-muted" data-reveal="up" style="--d: 100ms">
+						Seven years building interfaces for product teams, now taking small jobs directly. Three packages below,
+						each with a fixed price and a fixed timeline. If your job does not fit, send the brief anyway and I will
+						say so honestly.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="section-tight pt-0">
+			<div class="shell">
+				<div class="border-t border-line">
+					{packages.map((pkg, i) => (
+						<div class="skill-row" data-reveal="up" style={`--d: ${i * 80}ms`}>
+							<span class="skill-index overline text-muted" aria-hidden="true">0{i + 1}</span>
+							<div class="min-w-0">
+								<h2 class="display-m">{pkg.name}</h2>
+								<p class="mt-2 font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
+									{pkg.price} · {pkg.time}
+								</p>
+							</div>
+							<div class="min-w-0">
+								<p class="skill-note max-w-[44ch] text-sm leading-7">{pkg.note}</p>
+								<p class="skill-tag mt-2.5">{pkg.includes.join(' · ')}</p>
+							</div>
+						</div>
+					))}
+				</div>
+
+				<p class="mt-8 max-w-[62ch] text-sm leading-7 text-muted" data-reveal="up">
+					Add-ons: VPS setup and monitoring Rp 750.000. Extra page Rp 400.000. Copywriting in English or Indonesian
+					included in every package. Fifty percent up front, the rest on handover. Two revision rounds, each within
+					seven days of delivery.
+				</p>
+			</div>
+		</section>
+
+		<section class="section-tight">
+			<div class="shell">
+				<ChapterLabel index="02" title="How it runs" note="Three steps" />
+				<ol class="mt-10 grid gap-8 border-t border-line pt-8 sm:grid-cols-3">
+					<li data-reveal="up">
+						<p class="overline text-accent">01 Brief</p>
+						<p class="mt-3 text-base leading-8">
+							Send what you need in a few lines. I reply within a day with either a quote or a no.
+						</p>
+					</li>
+					<li data-reveal="up" style="--d: 80ms">
+						<p class="overline text-accent">02 Build</p>
+						<p class="mt-3 text-base leading-8">
+							You get a staging link on day two. Comments go in one thread, not scattered across chat.
+						</p>
+					</li>
+					<li data-reveal="up" style="--d: 160ms">
+						<p class="overline text-accent">03 Handover</p>
+						<p class="mt-3 text-base leading-8">
+							Code and access move to you, deployed and documented. One week of fixes after that, free.
+						</p>
+					</li>
+				</ol>
+			</div>
+		</section>
+
+		<section class="section-tight">
+			<div class="shell">
+				<div class="border-t border-line pt-10">
+					<h2 class="display-l max-w-[24ch] text-balance" data-reveal="up">Have a job that fits?</h2>
+					<p class="mt-5 max-w-[52ch] text-base leading-8 text-muted" data-reveal="up">
+						Email the brief or ask a question first. Working hours are WIB, replies usually within a day.
+					</p>
+					<div class="mt-8 flex flex-wrap items-center gap-3">
+						<a class="btn btn-solid" href="mailto:dimasputranugrh@gmail.com?subject=Project%20brief">Send the brief</a>
+						<a class="btn btn-line" href="/#work">See past work</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<SiteFooter />
+
+	<script src="../scripts/landing.ts"></script>
+</Layout>
