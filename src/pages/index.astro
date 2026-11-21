@@ -8,13 +8,33 @@ const services = [
 		o: 'Technical brief · data model · delivery plan',
 	},
 	{
-		k: 'Product engineering',
-		v: 'Internal tools, dashboards, client-facing apps. Built so the next engineer can read it, not just the one who shipped it.',
-		o: 'Working software · tests · documented handover',
+		k: 'Company website',
+		v: 'Profile, catalogue, or landing page that loads fast, reads well on a phone, and can be edited by staff without calling a developer.',
+		o: 'Marketing site · CMS · analytics · SEO basics',
+	},
+	{
+		k: 'CRM',
+		v: 'Leads, pipeline stages, follow-up reminders, and a record of every conversation. Built around how the sales team already works, not the other way round.',
+		o: 'Lead intake · pipeline · tasks · reporting',
+	},
+	{
+		k: 'POS & inventory',
+		v: 'Cashier screen, stock movements, receipts, and daily close. Works on a cheap tablet, survives a dropped connection.',
+		o: 'Sales · stock · receipts · shift report',
+	},
+	{
+		k: 'Business apps',
+		v: 'HRIS and payroll, booking and scheduling, LMS, invoicing, clinic and workshop records. The system a business keeps in spreadsheets until it hurts.',
+		o: 'Roles and access · approvals · exports',
+	},
+	{
+		k: 'AI assistants',
+		v: 'An assistant that answers from the company’s own documents, drafts replies, and hands over to a human when it is unsure instead of inventing an answer.',
+		o: 'Document search · drafting · human handover',
 	},
 	{
 		k: 'Automation & integration',
-		v: 'The manual steps nobody wants to repeat. Scheduled jobs, bots, API plumbing, and the reporting that should never need a human.',
+		v: 'WhatsApp and Telegram bots, scheduled jobs, API plumbing between tools that were never meant to talk, and the reporting that should never need a human.',
 		o: 'Running jobs · alerting · runbook',
 	},
 	{
@@ -22,6 +42,25 @@ const services = [
 		v: 'One source of truth, refreshed on schedule, with access rules that hold. Numbers you can defend in a meeting.',
 		o: 'Pipelines · reporting surface · access rules',
 	},
+];
+
+const also = [
+	'Company profile',
+	'Online store',
+	'Booking & reservations',
+	'HRIS & payroll',
+	'Attendance',
+	'Invoicing',
+	'Helpdesk',
+	'LMS',
+	'Clinic records',
+	'Inventory',
+	'Membership',
+	'Fleet & delivery',
+	'Document management',
+	'WhatsApp bot',
+	'Telegram bot',
+	'Payment integration',
 ];
 
 const steps = [
@@ -146,7 +185,7 @@ const spec = [
 				<div class="wrap">
 					<div class="band-head" data-reveal="up">
 						<h2 class="band-title">Services</h2>
-						<p class="band-note">Four ways to engage. Scope agreed before work starts.</p>
+						<p class="band-note">Websites, CRM, POS, business apps. Scope agreed before work starts.</p>
 					</div>
 
 					<div class="cards">
@@ -158,6 +197,15 @@ const spec = [
 								<p class="card-meta">{s.o}</p>
 							</article>
 						))}
+					</div>
+
+					<div class="also" data-reveal="up">
+						<p class="also-label">Also delivered</p>
+						<ul>
+							{also.map((a) => (
+								<li>{a}</li>
+							))}
+						</ul>
 					</div>
 				</div>
 			</section>
@@ -692,6 +740,44 @@ const spec = [
 			letter-spacing: 0.12em;
 			text-transform: uppercase;
 			color: var(--fg-3);
+		}
+
+		.also {
+			margin-top: 2.5rem;
+			display: grid;
+			gap: 0.9rem;
+		}
+
+		@media (min-width: 900px) {
+			.also {
+				grid-template-columns: 8rem minmax(0, 1fr);
+				gap: 2rem;
+			}
+		}
+
+		.also-label {
+			font-family: var(--font-mono);
+			font-size: 10px;
+			letter-spacing: 0.18em;
+			text-transform: uppercase;
+			color: var(--fg-3);
+		}
+
+		.also ul {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.3rem 0.75rem;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			font-size: 13px;
+			color: var(--fg-2);
+		}
+
+		.also li {
+			border: 1px solid var(--line-soft);
+			padding: 0.2rem 0.55rem;
+			border-radius: 2px;
 		}
 
 		/* steps */
