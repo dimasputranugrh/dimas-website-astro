@@ -90,7 +90,7 @@ const spec = [
 <Layout
 	title="MIDS CONS — IT consulting and digital delivery"
 	description="Independent IT consultancy. Discovery, product engineering, automation, and data delivery. One engineer, direct, fixed scope."
-	theme="dark"
+	theme="light"
 >
 	<div class="site">
 		<a
@@ -293,15 +293,15 @@ const spec = [
 
 	<style>
 		.site {
-			--bg: #08090a;
-			--surface: rgba(255, 255, 255, 0.022);
-			--surface-2: rgba(255, 255, 255, 0.045);
-			--line: rgba(255, 255, 255, 0.085);
-			--line-soft: rgba(255, 255, 255, 0.05);
-			--fg: #f4f1ea;
-			--fg-2: #b9b3a8;
-			--fg-3: #9c968c;
-			--acc: #ff5533;
+			--bg: #0b1220;
+			--surface: rgba(255, 255, 255, 0.024);
+			--surface-2: rgba(255, 255, 255, 0.05);
+			--line: rgba(255, 255, 255, 0.1);
+			--line-soft: rgba(255, 255, 255, 0.06);
+			--fg: #eef3f9;
+			--fg-2: #b4c2d2;
+			--fg-3: #8b9cae;
+			--acc: #ff7a4d;
 			background: var(--bg);
 			color: var(--fg);
 			font-family: var(--font-sans);
@@ -311,21 +311,30 @@ const spec = [
 		}
 
 		:global(html[data-theme='light']) .site {
-			--bg: #f2ede4;
-			--surface: rgba(0, 0, 0, 0.022);
-			--surface-2: rgba(0, 0, 0, 0.05);
-			--line: rgba(0, 0, 0, 0.16);
-			--line-soft: rgba(0, 0, 0, 0.08);
-			--fg: #0c0b0a;
-			--fg-2: #47423b;
-			--fg-3: #6f685e;
-			--acc: #c2401e;
+			--bg: #e4eefa;
+			--surface: rgba(255, 255, 255, 0.62);
+			--surface-2: rgba(255, 255, 255, 0.85);
+			--line: rgba(11, 26, 44, 0.16);
+			--line-soft: rgba(11, 26, 44, 0.09);
+			--fg: #08182b;
+			--fg-2: #33475e;
+			--fg-3: #4e6478;
+			--acc: #b8391a;
 		}
 
 		:global(html[data-theme='light']) .solid-btn {
-			background: #0c0b0a;
-			border-color: #0c0b0a;
-			color: #f2ede4;
+			background: #0a1c30;
+			border-color: #0a1c30;
+			color: #e4eefa;
+		}
+
+		/* page ground follows the theme, so overscroll never flashes the old paper */
+		:global(html[data-theme='light']) body {
+			background-color: #e4eefa;
+		}
+
+		:global(html[data-theme='dark']) body {
+			background-color: #0b1220;
 		}
 
 		.wrap {
