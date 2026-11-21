@@ -9,11 +9,15 @@ import '../styles/global.css';
 export interface Props {
 	title?: string;
 	description?: string;
+	image?: string;
+	theme?: 'light' | 'dark';
 }
 
 const {
 	title = 'Dimas Putra, Lead Frontend Developer',
 	description = 'Portfolio of Dimas Putra, Lead Frontend Developer. Seven years building web interfaces that load fast, stay consistent, and work for everyone.',
+	image = '/brand/avatar-tech.png',
+	theme = 'light',
 } = Astro.props;
 ---
 
@@ -31,24 +35,29 @@ const {
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:locale" content="en_US" />
-		<meta name="twitter:card" content="summary" />
+		<meta property="og:image" content={image} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:image" content={image} />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<title>{title}</title>
-		<script is:inline>
+		<script is:inline define:vars={{ forcedTheme: theme }}>
 			(() => {
 				const root = document.documentElement;
 				root.classList.add('js');
-				let theme = 'light';
-				try {
-					const stored = localStorage.getItem('theme');
-					if (stored === 'light' || stored === 'dark') {
-						theme = stored;
-					} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-						theme = 'dark';
+				const forced = forcedTheme;
+				let theme = forced === 'light' || forced === 'dark' ? forced : 'light';
+				if (forced !== 'light' && forced !== 'dark') {
+					try {
+						const stored = localStorage.getItem('theme');
+						if (stored === 'light' || stored === 'dark') {
+							theme = stored;
+						} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+							theme = 'dark';
+						}
+					} catch {
+						theme = 'light';
 					}
-				} catch {
-					theme = 'light';
 				}
 				root.dataset.theme = theme;
 			})();

@@ -1,11 +1,328 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import ChapterLabel from '../components/ChapterLabel.astro';
+
+const services = [
+	{
+		name: 'Discovery and architecture',
+		note: 'Before anything is built, work out what the business actually needs: scope, data model, integration map, and the risks that will bite later.',
+		outcome: 'Technical brief · data model · delivery plan',
+	},
+	{
+		name: 'Product engineering',
+		note: 'Web applications, internal tools, dashboards, and the front-end systems behind them. Built to be maintained by someone other than the person who wrote it.',
+		outcome: 'Working software · tests · documented handover',
+	},
+	{
+		name: 'Automation and integration',
+		note: 'The manual steps nobody wants to repeat. Bots, scheduled jobs, API plumbing, and the paperwork that should never need a human again.',
+		outcome: 'Running jobs · alerting · runbook',
+	},
+	{
+		name: 'Data and reporting',
+		note: 'One source of truth, refreshed on schedule. Numbers a business can look at without asking three people where they came from.',
+		outcome: 'Pipelines · reporting surface · access rules',
+	},
+];
+
+const steps = [
+	{ k: 'Brief', v: 'The problem in plain words. What breaks today, what has to be true when it is fixed.' },
+	{ k: 'Assess', v: 'Constraints, existing systems, budget shape. A written scope before any code moves.' },
+	{ k: 'Build', v: 'Short cycles, a staging link from week one, one review thread per milestone.' },
+	{ k: 'Handover', v: 'Code, access, and documentation move to the owner. Support window agreed in writing.' },
+];
+
+const work = [
+	{ tag: 'Terminal', title: 'Analysis terminal for a discretionary trader', detail: 'Live market data, structure levels, and pre-trade checks surfaced in one panel. Manual execution stays with the human.' },
+	{ tag: 'Automation', title: 'Research agent for equity markets', detail: 'Nightly data pull, scoring, and a written brief delivered before the market opens.' },
+	{ tag: 'Pipeline', title: '24/7 media render pipeline', detail: 'Automated rendering, voice synthesis, subtitles, and publishing across a channel with 25,000 subscribers.' },
+	{ tag: 'Delivery', title: 'Client-facing web builds', detail: 'Landing pages, catalogues, and small internal tools shipped on fixed scope.' },
+];
+
+const stack = ['TypeScript', 'React', 'Next.js', 'Astro', 'Node', 'Python', 'PostgreSQL', 'Docker', 'Linux', 'Tailwind'];
 ---
 
 <Layout
-	title="Dimas Putra, Lead Frontend Developer"
-	description="Portfolio of Dimas Putra, Lead Frontend Developer. Seven years building web interfaces that load fast, stay consistent, and work for everyone."
+	title="MIDS CONS — IT consulting and digital delivery"
+	description="Independent IT consultancy. Discovery, product engineering, automation, and data delivery. Fixed scope, one engineer, no account managers."
+	theme="dark"
 >
-	<Welcome />
+	<div class="grid-veil" aria-hidden="true"></div>
+
+	<a
+		class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-sm focus:border focus:border-ink focus:bg-paper focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-ink"
+		href="#main">Skip to content</a
+	>
+
+	<header class="site-header" data-header>
+		<div class="shell header-inner">
+			<a class="group inline-flex min-w-0 items-center gap-3" href="/" aria-label="MIDS CONS, home">
+				<span class="brand-mark" aria-hidden="true">MC</span>
+				<span class="wordmark truncate"
+					>MIDS<span class="text-accent">//</span>CONS</span
+				>
+			</a>
+
+			<nav class="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
+				<a class="nav-link" href="#services"><span class="nav-index" aria-hidden="true">01</span>Services</a>
+				<a class="nav-link" href="#approach"><span class="nav-index" aria-hidden="true">02</span>Approach</a>
+				<a class="nav-link" href="#work"><span class="nav-index" aria-hidden="true">03</span>Work</a>
+				<a class="nav-link" href="#contact"><span class="nav-index" aria-hidden="true">04</span>Contact</a>
+				<a class="nav-link" href="/dimas-profile"><span class="nav-index" aria-hidden="true">05</span>Profile</a>
+			</nav>
+
+			<div class="flex items-center gap-2">
+				<button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme" title="Switch theme">
+					<svg class="theme-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+						<circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+						<path d="M12 4a8 8 0 0 1 0 16Z" fill="currentColor"></path>
+					</svg>
+				</button>
+				<a class="btn btn-line btn-small hidden sm:inline-flex" href="mailto:dimasputranugrh@gmail.com?subject=Project%20brief"
+					>Start a brief</a
+				>
+			</div>
+		</div>
+		<div class="scroll-progress" data-progress aria-hidden="true"></div>
+	</header>
+
+	<main id="main" class="pt-16 lg:pt-[72px]">
+		<section class="section-tight" id="top">
+			<div class="shell">
+				<p class="overline text-muted" data-reveal="up">Independent IT consultancy · remote, WIB</p>
+
+				<h1 class="mt-6 max-w-[26ch] text-balance display-hero" data-reveal="mask">
+					<span class="line-mask"><span>Systems that</span></span>
+					<span class="line-mask"><span>hold up after</span></span>
+					<span class="line-mask"><span><span class="accent-word">launch</span>.</span></span>
+				</h1>
+
+				<div class="mt-10 grid gap-8 border-t border-line pt-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+					<p class="max-w-[54ch] text-lg leading-8 text-muted" data-reveal="up">
+						I take software from a sentence in a meeting to something running in production. Discovery, engineering,
+						automation, and the plumbing between them. One engineer, direct, no layers in between.
+					</p>
+					<div class="flex flex-wrap items-start gap-6" data-reveal="up" style="--d: 100ms">
+						<div>
+							<p class="overline text-accent">Engagements</p>
+							<p class="mt-2 text-sm text-muted">Fixed scope, agreed before work starts</p>
+						</div>
+						<div>
+							<p class="overline text-accent">Working with</p>
+							<p class="mt-2 text-sm text-muted">Founders, operators, small teams</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="mt-10 flex flex-wrap items-center gap-3">
+					<a class="btn btn-primary" href="mailto:dimasputranugrh@gmail.com?subject=Project%20brief">
+						Send a brief
+						<span class="btn-dot" aria-hidden="true"></span>
+					</a>
+					<a class="btn btn-line" href="#services">What I do</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="services">
+			<div class="shell">
+				<ChapterLabel index="01" title="Services" note="Four ways to engage" />
+
+				<div class="mt-10 border-t border-line">
+					{services.map((s, i) => (
+						<div class="skill-row" data-reveal="up" style={`--d: ${i * 70}ms`}>
+							<span class="skill-index overline text-muted" aria-hidden="true">0{i + 1}</span>
+							<div class="min-w-0">
+								<h2 class="display-m">{s.name}</h2>
+								<p class="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">{s.outcome}</p>
+							</div>
+							<p class="skill-note max-w-[52ch] text-sm leading-7">{s.note}</p>
+						</div>
+					))}
+				</div>
+
+				<p class="mt-8 max-w-[62ch] text-sm leading-7 text-muted" data-reveal="up">
+					Scope and terms are agreed in writing before work starts. If a request does not fit what I do well, I say so
+					and point elsewhere.
+				</p>
+			</div>
+		</section>
+
+		<section class="section" id="approach">
+			<div class="shell">
+				<ChapterLabel index="02" title="Approach" note="Four steps, no surprises" />
+
+				<div class="mt-10 grid gap-x-16 gap-y-10 lg:grid-cols-[0.9fr_1.1fr]">
+					<h2 class="display-l max-w-[22ch]" data-reveal="up">Boring process. Interesting problems.</h2>
+					<ol class="grid gap-0 border-t border-line">
+						{steps.map((s, i) => (
+							<li class="grid grid-cols-[auto_1fr] gap-6 border-b border-line py-6" data-reveal="up" style={`--d: ${i * 60}ms`}>
+								<span class="font-mono text-[10px] uppercase tracking-[0.16em] text-accent">0{i + 1} {s.k}</span>
+								<p class="text-sm leading-7 text-muted">{s.v}</p>
+							</li>
+						))}
+					</ol>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="work">
+			<div class="shell">
+				<ChapterLabel index="03" title="Work" note="Selected builds" />
+
+				<div class="mt-10 grid gap-0 border-t border-line">
+					{work.map((w, i) => (
+						<article class="grid gap-4 border-b border-line py-8 lg:grid-cols-[0.42fr_1fr] lg:gap-16" data-reveal="up" style={`--d: ${i * 60}ms`}>
+							<p class="font-mono text-[10px] uppercase tracking-[0.18em] text-accent">{w.tag}</p>
+							<div>
+								<h2 class="display-m">{w.title}</h2>
+								<p class="mt-3 max-w-[60ch] text-sm leading-7 text-muted">{w.detail}</p>
+							</div>
+						</article>
+					))}
+				</div>
+
+				<p class="mt-8 font-mono text-[10px] uppercase leading-6 tracking-[0.16em] text-muted" data-reveal="up">
+					{stack.join(' · ')}
+				</p>
+			</div>
+		</section>
+
+		<section class="section" id="contact">
+			<div class="shell">
+				<ChapterLabel index="04" title="Contact" note="Replies within a day" />
+
+				<div class="mt-10 grid gap-10 border-t border-line pt-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
+					<div>
+						<h2 class="display-l max-w-[24ch] text-balance" data-reveal="up">Bring the part that keeps breaking.</h2>
+						<p class="mt-5 max-w-[50ch] text-base leading-8 text-muted" data-reveal="up">
+							A few lines is enough to start: what the business does, what is failing, and what a fix would be worth.
+							If it is not my kind of problem, you will hear that too.
+						</p>
+						<div class="mt-8 flex flex-wrap items-center gap-3">
+							<a class="btn btn-primary" href="mailto:dimasputranugrh@gmail.com?subject=Project%20brief">
+								dimasputranugrh@gmail.com
+							</a>
+							<a class="btn btn-line" href="/dimas-profile">Engineer profile</a>
+						</div>
+					</div>
+					<dl class="grid gap-5 self-start border-l border-line pl-6 font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
+						<div>
+							<dt class="text-accent">Availability</dt>
+							<dd class="mt-2 leading-6">Taking new engagements</dd>
+						</div>
+						<div>
+							<dt class="text-accent">Timezone</dt>
+							<dd class="mt-2 leading-6">WIB, GMT+7</dd>
+						</div>
+						<div>
+							<dt class="text-accent">Engagement</dt>
+							<dd class="mt-2 leading-6">Fixed scope, written terms</dd>
+						</div>
+					</dl>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="border-t border-line">
+		<div class="shell pb-10 pt-14">
+			<div class="flex flex-wrap items-end justify-between gap-10">
+				<div>
+					<p class="overline text-muted">MIDS CONS</p>
+					<p class="wordmark-lg mt-3">MIDS<span class="text-accent">//</span>CONS</p>
+				</div>
+				<nav class="grid gap-2 text-sm font-semibold" aria-label="Footer links">
+					<a class="underline decoration-line-strong underline-offset-4 hover:decoration-accent" href="mailto:dimasputranugrh@gmail.com"
+						>dimasputranugrh@gmail.com</a
+					>
+					<a class="underline decoration-line-strong underline-offset-4 hover:decoration-accent" href="/dimas-profile">Dimas Putra</a>
+					<a
+						class="underline decoration-line-strong underline-offset-4 hover:decoration-accent"
+						href="https://www.linkedin.com/in/dimasputranugrh/"
+						target="_blank"
+						rel="noreferrer">LinkedIn</a
+					>
+				</nav>
+			</div>
+			<div
+				class="mt-12 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-line pt-5 font-mono text-[10px] uppercase tracking-[0.14em] text-muted"
+			>
+				<span>© {new Date().getFullYear()} MIDS CONS</span>
+				<span class="inline-flex items-center gap-2">
+					<span class="h-1.5 w-1.5 bg-accent" aria-hidden="true"></span>
+					IT consulting and digital delivery
+				</span>
+				<a class="hover:text-ink" href="#top">Back to top</a>
+			</div>
+		</div>
+	</footer>
+
+	<script src="../scripts/landing.ts"></script>
+
+	<style>
+		.grid-veil {
+			position: fixed;
+			inset: 0;
+			z-index: 0;
+			pointer-events: none;
+			background-image: linear-gradient(to right, color-mix(in srgb, var(--line) 34%, transparent) 1px, transparent 1px),
+				linear-gradient(to bottom, color-mix(in srgb, var(--line) 34%, transparent) 1px, transparent 1px);
+			background-size: 128px 128px;
+			mask-image: radial-gradient(120% 90% at 50% 0%, black 10%, transparent 78%);
+		}
+
+		.site-header,
+		main,
+		footer {
+			position: relative;
+			z-index: 1;
+		}
+
+		.wordmark {
+			font-family: var(--font-mono);
+			font-size: 0.95rem;
+			font-weight: 500;
+			letter-spacing: 0.02em;
+			line-height: 1;
+		}
+
+		.wordmark-lg {
+			font-family: var(--font-mono);
+			font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+			line-height: 0.95;
+			letter-spacing: 0.01em;
+		}
+
+		.skill-row {
+			display: grid;
+			gap: 1rem;
+			border-bottom: 1px solid var(--line);
+			padding-block: 1.75rem;
+			transition: background-color 250ms var(--ease), color 250ms var(--ease);
+		}
+
+		@media (min-width: 1024px) {
+			.skill-row {
+				grid-template-columns: 3rem 0.85fr 1.15fr;
+				gap: 2.5rem;
+				align-items: baseline;
+				padding-block: 2rem;
+			}
+		}
+
+		.skill-row:hover {
+			background: color-mix(in srgb, var(--paper-2) 70%, transparent);
+		}
+
+		.skill-index {
+			line-height: 1;
+		}
+
+		@media (max-width: 1023px) {
+			.skill-index {
+				display: none;
+			}
+		}
+	</style>
 </Layout>
