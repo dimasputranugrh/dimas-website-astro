@@ -307,6 +307,25 @@ const spec = [
 			font-family: var(--font-sans);
 			letter-spacing: -0.011em;
 			min-height: 100dvh;
+			transition: background-color 220ms ease, color 220ms ease;
+		}
+
+		:global(html[data-theme='light']) .site {
+			--bg: #f2ede4;
+			--surface: rgba(0, 0, 0, 0.022);
+			--surface-2: rgba(0, 0, 0, 0.05);
+			--line: rgba(0, 0, 0, 0.16);
+			--line-soft: rgba(0, 0, 0, 0.08);
+			--fg: #0c0b0a;
+			--fg-2: #47423b;
+			--fg-3: #6f685e;
+			--acc: #c2401e;
+		}
+
+		:global(html[data-theme='light']) .solid-btn {
+			background: #0c0b0a;
+			border-color: #0c0b0a;
+			color: #f2ede4;
 		}
 
 		.wrap {
@@ -706,7 +725,7 @@ const spec = [
 		}
 
 		.card:hover {
-			background: linear-gradient(0deg, var(--surface), var(--surface));
+			background: var(--surface);
 		}
 
 		.card-index {

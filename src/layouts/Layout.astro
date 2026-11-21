@@ -45,19 +45,17 @@ const {
 			(() => {
 				const root = document.documentElement;
 				root.classList.add('js');
-				const forced = forcedTheme;
-				let theme = forced === 'light' || forced === 'dark' ? forced : 'light';
-				if (forced !== 'light' && forced !== 'dark') {
-					try {
-						const stored = localStorage.getItem('theme');
-						if (stored === 'light' || stored === 'dark') {
-							theme = stored;
-						} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-							theme = 'dark';
-						}
-					} catch {
-						theme = 'light';
+				const forced = forcedTheme === 'light' || forcedTheme === 'dark' ? forcedTheme : '';
+				let theme = forced || 'light';
+				try {
+					const stored = localStorage.getItem('theme');
+					if (stored === 'light' || stored === 'dark') {
+						theme = stored;
+					} else if (!forced && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+						theme = 'dark';
 					}
+				} catch {
+					theme = forced || 'light';
 				}
 				root.dataset.theme = theme;
 			})();
